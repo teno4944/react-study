@@ -1,0 +1,111 @@
+.footer-wrap {
+	position: relative;
+	height: 275px;
+	background-color: $dark;
+	color: $white;
+	&:after {
+		content: "";
+		display: none;
+		@include position(absolute, 0, 0, 0);
+		height: 10px;
+		overflow: hidden;
+		@include bg('bg-line', repeat-x, cover, 50% 0);
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src= "#{$imgnow}/baeksang/bg-line.png", sizingMethod="scale");
+	}
+	.container-inner {
+		position: relative;
+		.publisher {
+			position: absolute;
+			left: 30px;
+			top: 103px;
+		}
+		.logo {
+			width: 459px;
+			height: 28px;
+			overflow: hidden;
+			@include bg('logo/logo_horizontal_wh');
+			text-indent: -999em;
+		}
+	}
+	.with {
+		margin-top: 10px;
+		dl {
+			position: relative;
+			padding-left: 50px;
+		}
+		dt {
+			@include position(absolute, 0, 0);
+			width: 50px;
+			height: 30px;
+			color: #808888;
+			letter-spacing: 0;
+			line-height: 30px;
+			font-size: 16px;
+		}
+		dd {
+			display: table;
+			width: auto;
+			height: 30px;
+			span {
+				display: table-cell;
+				padding-left: 14px;
+				vertical-align: middle;
+			}
+		}
+	}
+	.copyright {
+		margin-top: 20px;
+		color: #cccfcf;
+		font-size: 15px;
+		font-weight: 100;
+		letter-spacing: 0;
+	}
+	.sponsor {
+		position: absolute;
+		right: 30px;
+		top: 64px;
+		dl {
+			position: relative;
+			margin-top: 17px;
+			padding-left: 106px;
+			height: 26px;
+			
+			&:first-child {
+				margin-top: 0;
+			}
+			&:nth-child(2) {
+				display: block;
+			}
+			&:nth-child(3) {
+				display: block;
+			}
+		}
+		dt {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 106px;
+			font-size: 15px;
+			font-weight: 100;
+			letter-spacing: 0;
+			line-height: 26px;
+			border: 0 none;
+			text-align: left;
+		}
+		dd {
+			display: flex;
+			width: 350px;
+			height: 26px;
+			flex-wrap: wrap;
+			flex-direction: row;
+			gap: 14px;
+			span {
+				display: table-cell;
+				vertical-align: middle;
+				&:first-child {
+					padding-left: 0 !important;
+				}
+			}
+		}
+	}
+}
