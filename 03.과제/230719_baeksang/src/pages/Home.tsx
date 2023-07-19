@@ -1,50 +1,6 @@
 export const Home = () => {
   return (
     <div className="container-wrap main-page">
-      <header className="header-wrap">
-        <div className="container-inner">
-          <h1 className="logo">
-            <a href="/">
-              <span>제59회 백상예술대상 Baeksang Arts Award</span>
-            </a>
-          </h1>
-          <div className="gnb">
-            <ul>
-              <li>
-                <a className="" href="/intro">
-                  <span>시상식 소개</span>
-                </a>
-              </li>
-              <li>
-                <a className="" href="/awards">
-                  <span>59회 수상자 · 작품</span>
-                </a>
-              </li>
-              <li>
-                <a className="" href="/replay">
-                  <span>다시보기</span>
-                </a>
-              </li>
-              <li>
-                <a className="" href="/winners">
-                  <span>역대 수상</span>
-                </a>
-              </li>
-              <li>
-                <a className="" href="/notice">
-                  <span>공지사항</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="nav">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </header>
       <div className="visual-wrap">
         <div className="container-inner">
           <div className="visual">
@@ -211,61 +167,6 @@ export const Home = () => {
             >
               <span>유튜브</span>
             </a>
-          </div>
-        </div>
-      </div>
-      <div className="footer-wrap">
-        <div className="container-inner">
-          <div className="publisher">
-            <div className="logo">제59회 백상예술대상</div>
-            <div className="copyright">Copyrightⓒ2023 JTBC All Rights Reserved</div>
-          </div>
-          <div className="sponsor">
-            <dl>
-              <dt>방송</dt>
-              <dd>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_jtbc_wh.png" alt="JTBC" />
-                </span>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_jtbc2_wh.png" alt="JTBC2" />
-                </span>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_jtbc4_wh.png" alt="JTBC4" />
-                </span>
-              </dd>
-            </dl>
-            <dl>
-              <dt>디지털 중계</dt>
-              <dd>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_tiktok_wh.png" alt="tiktok" />
-                </span>
-              </dd>
-            </dl>
-            <dl>
-              <dt>협찬</dt>
-              <dd>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_tiktok_wh.png" alt="tiktok" />
-                </span>
-                <span>
-                  <img
-                    src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_paradisecity_wh.png"
-                    alt="파라다이스시티"
-                  />
-                </span>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_incheon_wh.png" alt="인천광역시" />
-                </span>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_incheontour_wh.png" alt="인천관광공사" />
-                </span>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_prizm_wh.png" alt="프리즘" />
-                </span>
-              </dd>
-            </dl>
           </div>
         </div>
       </div>

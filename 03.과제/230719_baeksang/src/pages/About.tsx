@@ -1,54 +1,12 @@
 // @/pages 폴더의 페이지 컴포넌트에서 중복된 코드를 찾아 별개의 컴포넌트로 세분화하세요.
 // <header>, <footer> 태그는 <Header> <Footer> 컴포넌트로 그 내용을 옮길 수 있지 않을까...?
 // 시상식 소개, 수상자/작품 페이지가 나오지 않는 이유도 찾아 보세요.
+// <Header> <Footer> 나누기, 수상자 작품, 다시 보기 페이지 만들기 (반드시 제공한 마크업에서 중복된 부분을 찾아 List-ListItem 형식을 활용하여 컴포넌트화 할 것.)
+//src/pages/About.tsx 파일을 열고 설명을 확인한다. (중복 코드를 찾아 컴포넌트화 하기)
 
 export const About = () => {
   return (
     <div className="container-wrap sub-page">
-      <header className="header-wrap sub">
-        <div className="container-inner">
-          <h1 className="logo">
-            <a href="/">
-              <span>제59회 백상예술대상 Baeksang Arts Award</span>
-            </a>
-          </h1>
-          <div className="gnb">
-            <ul>
-              <li>
-                <a className="on" href="/intro">
-                  <span>시상식 소개</span>
-                </a>
-              </li>
-              <li>
-                <a className="" href="/awards">
-                  <span>59회 수상자 · 작품</span>
-                </a>
-              </li>
-              <li>
-                <a className="" href="/replay">
-                  <span>다시보기</span>
-                </a>
-              </li>
-              <li>
-                <a className="" href="/winners">
-                  <span>역대 수상</span>
-                </a>
-              </li>
-              <li>
-                <a className="" href="/notice">
-                  <span>공지사항</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="nav">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </header>
       <div className="about-page">
         <div className="about-title-wrap sub-title">
           <div className="container-inner">
@@ -201,61 +159,6 @@ export const About = () => {
         <a href="#" className="top-wrap">
           <img src="https://images.jtbc.co.kr/baeksang/go_top.png" alt="위로" />
         </a>
-      </div>
-      <div className="footer-wrap">
-        <div className="container-inner">
-          <div className="publisher">
-            <div className="logo">제59회 백상예술대상</div>
-            <div className="copyright">Copyrightⓒ2023 JTBC All Rights Reserved</div>
-          </div>
-          <div className="sponsor">
-            <dl>
-              <dt>방송</dt>
-              <dd>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_jtbc_wh.png" alt="JTBC" />
-                </span>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_jtbc2_wh.png" alt="JTBC2" />
-                </span>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_jtbc4_wh.png" alt="JTBC4" />
-                </span>
-              </dd>
-            </dl>
-            <dl>
-              <dt>디지털 중계</dt>
-              <dd>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_tiktok_wh.png" alt="tiktok" />
-                </span>
-              </dd>
-            </dl>
-            <dl>
-              <dt>협찬</dt>
-              <dd>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_tiktok_wh.png" alt="tiktok" />
-                </span>
-                <span>
-                  <img
-                    src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_paradisecity_wh.png"
-                    alt="파라다이스시티"
-                  />
-                </span>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_incheon_wh.png" alt="인천광역시" />
-                </span>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_incheontour_wh.png" alt="인천관광공사" />
-                </span>
-                <span>
-                  <img src="https://images.jtbc.co.kr/baeksang/2023/logo/logo_prizm_wh.png" alt="프리즘" />
-                </span>
-              </dd>
-            </dl>
-          </div>
-        </div>
       </div>
     </div>
   );
