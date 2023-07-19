@@ -1,0 +1,35 @@
+// 분류하지 않은 SASS 파일들의 내용을 모듈화 해 보세요.
+// '@/components/컴포넌트명.module.css'
+@charset 'utf-8';
+
+@import './uncategorized/base/variables';
+@import './uncategorized/base/mixin';
+@import './uncategorized/base/reset';
+
+@import './uncategorized/common/common';
+@import './uncategorized/common/loaded';
+@import './uncategorized/common/loading';
+
+@import './uncategorized/component/listmore';
+@import './uncategorized/component/paging';
+@import './uncategorized/component/popup';
+@import './uncategorized/component/select';
+@import './uncategorized/component/table';
+
+@import './uncategorized/pages/about';
+@import './uncategorized/pages/candidate';
+@import './uncategorized/pages/dday';
+@import './uncategorized/pages/info';
+@import './uncategorized/pages/main';
+@import './uncategorized/pages/notice';
+@import './uncategorized/pages/null';
+@import './uncategorized/pages/pre';
+@import './uncategorized/pages/replay';
+@import './uncategorized/pages/sector';
+@import './uncategorized/pages/sub';
+@import './uncategorized/pages/visual';
+@import './uncategorized/pages/vote';
+
+@import './uncategorized/footer';
+@import './uncategorized/header';
+@import './uncategorized/sub';

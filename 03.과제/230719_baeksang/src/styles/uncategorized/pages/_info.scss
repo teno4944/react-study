@@ -1,0 +1,56 @@
+.info-wrap {
+	position: relative;
+	height: 346px;
+	background-color: transparent;
+	text-align: center;
+	p {
+		position: relative;
+		opacity: 0;
+		visibility: hidden;
+		top: 30px;
+		padding-top: 77px;
+		font-size: 20px;
+	}
+	div {
+		height: 129px;
+	}
+	h2 {
+		position: relative;
+		opacity: 0;
+		visibility: hidden;
+		top: 30px;
+		margin-top: 11px;
+		font-size: 35px;
+		strong {
+			font-weight: 500;
+		}
+		span {
+			font-weight: 300;
+		}
+	}
+	a {
+		position: relative;
+		opacity: 0;
+		visibility: hidden;
+		top: 30px;
+		margin-top: 34px;
+		span {
+			width: 220px;
+			color: $white;
+		}
+		&:hover {
+			background: $primary;
+			color: $white;
+		}
+	}
+	.day {
+		position: absolute;
+		left: 50%;
+		width: 420px;
+		height: 129px;
+		transform: translateX(-50%);
+		overflow: hidden;
+		background: url(#{$imgnow}/baeksang/2023/info-day.png) no-repeat 50% 50%/100% 100%;
+		text-indent: -999px;
+	}
+}
