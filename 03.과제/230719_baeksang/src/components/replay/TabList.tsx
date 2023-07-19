@@ -10,7 +10,7 @@ export const TabList = ({ items, children }: PropsWithChildren<Props>) => {
   return (
     <>
       {items.map(({ title, pathname, isDefaultItem, id }) => {
-        return <TabListItem title={title} pathname={pathname} isDefaultItem={isDefaultItem} key={id} />;
+        return <TabListItem title={title} pathname={pathname} isDefaultItem={isDefaultItem} key={id} id={id} />;
       })}
       {children}
     </>
