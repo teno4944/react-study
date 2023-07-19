@@ -6,11 +6,11 @@ export const FooterSponsor = () => {
     <div className="sponsor">
       {sponsorItems.map((item) => {
         return (
-          <dl>
+          <dl key={item.title}>
             <dt>{item.title}</dt>
             <dd>
-              {item.child.map((child) => {
-                return <FooterSponsorItem {...child} />;
+              {item.child.map((child, index) => {
+                return <FooterSponsorItem key={index} {...child} />;
               })}
             </dd>
           </dl>
