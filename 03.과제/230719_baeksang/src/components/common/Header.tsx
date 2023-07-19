@@ -1,3 +1,14 @@
+import { HeaderNav } from '@/components';
 export const Header = () => {
-  return <p></p>;
+  return (
+    <>
+      <HeaderNav />
+      <div className="nav">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </>
+  );
 };
