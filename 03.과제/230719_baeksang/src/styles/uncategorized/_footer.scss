@@ -1,6 +1,7 @@
 .footer-wrap {
 	position: relative;
 	height: 275px;
+	min-width: $pc-width;
 	background-color: $dark;
 	color: $white;
 	&:after {
