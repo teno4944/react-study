@@ -13,6 +13,7 @@ export type TabItemProps = {
   title: string;
   pathname: string;
   isDefaultItem?: boolean;
+  id: string;
 };
 
 export type TabItemListProps = TabItemProps[];

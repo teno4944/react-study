@@ -4,12 +4,15 @@ export const VideoListItem = ({ image, duration_display_time, title }: Partial<R
   return (
     <li>
       <a href="#">
-        <span>
+        <span className="list-thumb">
           <img src={image} alt={`${title}-미리보기 이미지`} />
+          <span className="list-thumb-over">
+            <img src="https://images.jtbc.co.kr/baeksang/list_thumb_over_default.png" alt="" />
+          </span>
         </span>
         {duration_display_time}
       </a>
-      <h3>{title}</h3>
+      <span className="list-title">{title}</span>
     </li>
   );
 };
