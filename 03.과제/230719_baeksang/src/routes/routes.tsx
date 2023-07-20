@@ -39,6 +39,12 @@ export const routes: RouteObject[] = [
   {
     path: 'winners',
     element: <Winners />,
+    children: [
+      {
+        path: ':awards_id',
+        element: <Winners />,
+      },
+    ],
   },
   // 공지사항
   {

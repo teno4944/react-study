@@ -1,5 +1,5 @@
 export type AwardItemProps = {
-  id: string;
+  id?: string;
   award_name: string;
   sub_title: string;
   image: string;

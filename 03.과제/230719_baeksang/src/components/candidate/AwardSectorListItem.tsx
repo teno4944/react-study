@@ -2,13 +2,14 @@ import { AwardWinner, AwardItemListProps } from '@/models/award.model';
 import { AwardListItem } from '@/components/candidate/AwardListItem';
 
 type Props = {
+  awards_no?: string;
   index: number;
   division_name: string;
   has_sector_winner: boolean;
   winner: AwardWinner;
   list: AwardItemListProps;
 };
-export const AwardSectorListItem = ({ index, division_name, has_sector_winner, winner, list }: Props) => {
+export const AwardSectorListItem = ({ awards_no, index, division_name, has_sector_winner, winner, list }: Props) => {
   return (
     <div className={`awards-sector-wrap sector0${index}`}>
       <div className="award-sector-title">
