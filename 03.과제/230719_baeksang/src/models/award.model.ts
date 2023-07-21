@@ -19,6 +19,6 @@ export type AwardProps = {
   division: string;
   division_name: string;
   has_sector_winner: boolean;
-  winner?: AwardWinner;
+  winner: AwardWinner;
   list: AwardItemListProps;
 };

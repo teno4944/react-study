@@ -1,5 +1,5 @@
 import { AwardWinner, AwardItemListProps } from '@/models/award.model';
-import { AwardListItem } from '@/components/candidate/AwardListItem';
+import { AwardListItem } from '@/components/award/AwardListItem';
 
 type Props = {
   awards_no?: string;
@@ -9,14 +9,14 @@ type Props = {
   winner: AwardWinner;
   list: AwardItemListProps;
 };
-export const AwardSectorListItem = ({ awards_no, index, division_name, has_sector_winner, winner, list }: Props) => {
+export const AwardSectorListItem = ({ index, division_name, has_sector_winner, winner, list }: Partial<Props>) => {
   return (
     <div className={`awards-sector-wrap sector0${index}`}>
       <div className="award-sector-title">
         <h3>{division_name}</h3>
       </div>
       <div className="awards-con">
-        {has_sector_winner && (
+        {has_sector_winner && winner && (
           <div className="awards-prize">
             <div className="awards-prize-con">
               <span className="list-thumb">
@@ -32,9 +32,10 @@ export const AwardSectorListItem = ({ awards_no, index, division_name, has_secto
         )}
         <div className="awards-awarded">
           <ul className="awarded-list">
-            {list.map((item) => {
-              return <AwardListItem key={item.id} {...item} />;
-            })}
+            {list &&
+              list.map((item, index) => {
+                return <AwardListItem key={`award-${index}`} {...item} />;
+              })}
           </ul>
         </div>
       </div>

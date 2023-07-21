@@ -1,4 +1,4 @@
-import { AwardSectorList } from '@/components/candidate/AwardSectorList';
+import { CandidateSectorList } from '@/components/candidate/CandidateSectorList';
 export const Candidate = () => {
   return (
     <div className="container-wrap sub-page">
@@ -14,7 +14,7 @@ export const Candidate = () => {
               <div className="awards-title sector-title">
                 <strong>59회 백상예술대상 수상자 · 작품</strong>
               </div>
-              <AwardSectorList />
+              <CandidateSectorList />
             </div>
           </div>
         </div>

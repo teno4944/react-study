@@ -6,7 +6,7 @@ export const SelectList = () => {
     <>
       {episodeList.map((item) => {
         const isDefaultItem = item === 58;
-        return <SelectListItem awards_no={item} pathname="#" isDefaultItem={isDefaultItem} />;
+        return <SelectListItem key={item} awards_no={item} pathname="#" isDefaultItem={isDefaultItem} />;
       })}
     </>
   );
