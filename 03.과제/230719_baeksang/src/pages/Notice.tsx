@@ -1,4 +1,12 @@
+import { useSearchParams } from 'react-router-dom';
+import { BoardList } from '@/components/notice/BoardList';
+import { BoardDetail } from '@/components/notice/BoardDetail';
+import noticeData from '@/mocks/notices.json';
+
 export const Notice = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const noticeId = searchParams.get('id');
+  const noticeItem = noticeData.filter((item) => item.id === noticeId).shift();
   return (
     <div className="container-wrap sub-page">
       <div className="notice-page">
@@ -14,45 +22,7 @@ export const Notice = () => {
         </div>
         <div className="tlb-wrap">
           <div className="container-inner">
-            <table>
-              <colgroup>
-                <col></col>
-                <col></col>
-                <col></col>
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope="col">번호</th>
-                  <th scope="col">제목</th>
-                  <th scope="col">작성일</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td className="title">
-                    <a href="/notice?id=65">'제59회 백상예술대상' 디지털 생중계 안내</a>
-                  </td>
-                  <td>2023.04.27</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td className="title">
-                    <a href="/notice?id=64">제59회 백상예술대상 4월 28일 개최</a>
-                  </td>
-                  <td>2023.04.05</td>
-                </tr>
-              </tbody>
-            </table>
-            <div className="paging">
-              <a className="btn-paging-prev">
-                <span className="sp_ico btn-prev">first page</span>
-              </a>
-              <a className="curpage active">1</a>
-              <a className="btn-paging-next">
-                <span className="sp_ico btn-next">last page</span>
-              </a>
-            </div>
+            {!noticeId ? <BoardList items={noticeData} /> : <BoardDetail {...noticeItem} />}
           </div>
         </div>
       </div>
