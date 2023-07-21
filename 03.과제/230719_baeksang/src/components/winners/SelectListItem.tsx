@@ -1,15 +1,15 @@
-import { NavLink } from 'react-router-dom';
-
 type Props = {
   pathname: string;
-  isDefaultItem: boolean;
+  cur_awards_no: number;
   awards_no: number;
 };
 
-export const SelectListItem = ({ awards_no, pathname, isDefaultItem }: Props) => {
+export const SelectListItem = ({ awards_no, pathname, cur_awards_no }: Props) => {
   return (
-    <NavLink className={({ isActive }) => (isActive || isDefaultItem ? 'on' : '')} to={pathname}>
-      <span>{awards_no}회</span>
-    </NavLink>
+    <li className={awards_no === cur_awards_no ? 'on' : ''}>
+      <a href={pathname}>
+        <span>{awards_no}회</span>
+      </a>
+    </li>
   );
 };
