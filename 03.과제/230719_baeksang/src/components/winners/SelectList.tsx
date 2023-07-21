@@ -4,7 +4,7 @@ type Props = {
   cur_awards_no: number;
 };
 export const SelectList = ({ cur_awards_no }: Props) => {
-  const episodeList = Array.from({ length: 58 }, (_, i) => i + 1);
+  const episodeList = [...Array(58).keys()].map((x) => x + 1);
   return (
     <>
       {episodeList.map((item) => {
