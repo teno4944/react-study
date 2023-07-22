@@ -38,9 +38,15 @@ export const VideoList = ({ awardsId, items }: Props) => {
       {listItems.length > 0 ? (
         <>
           <ul className="replay-list">
-            {listItems.map(({ id, image, duration_display_time, title }) => {
+            {listItems.map(({ id, image, duration_display_time, title, youtube_code }) => {
               return (
-                <VideoListItem key={id} image={image} duration_display_time={duration_display_time} title={title} />
+                <VideoListItem
+                  key={id}
+                  image={image}
+                  duration_display_time={duration_display_time}
+                  title={title}
+                  youtube_code={youtube_code}
+                />
               );
             })}
           </ul>
