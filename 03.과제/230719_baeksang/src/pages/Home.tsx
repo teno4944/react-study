@@ -1,3 +1,6 @@
+import { MainVideoSlider } from '@/components/home';
+import ScrollAnimation from 'react-animate-on-scroll';
+
 export const Home = () => {
   return (
     <div className="container-wrap main-page">
@@ -24,66 +27,13 @@ export const Home = () => {
         </div>
       </div>
       <div className="vod-wrap">
-        <div className="container-inner">
-          <div className="wrap">
-            <div className="list swiper-container">
-              <div className="swiper swiper-wrapper swiper-initialized swiper-horizontal swiper-backface-hidden">
-                <ul className="swiper-wrapper">
-                  <li className="swiper-slide swiper-slide-active">
-                    <a>
-                      <span className="thumb" data-vod="VO10682299">
-                        <img
-                          src="https://fs.jtbc.co.kr/joydata/CP00000001/prog/enter/baeksangawards/img/20230428_213219_735_1.jpg"
-                          alt="VO10682299"
-                        />
-                      </span>
-                      <span className="title">
-                        <strong>[59회 백상] TV부문 대상 - 박은빈</strong>
-                        <span>[59회 백상] TV부문 대상 - 박은빈</span>
-                      </span>
-                    </a>
-                  </li>
-                  <li className="swiper-slide swiper-slide-next">
-                    <a>
-                      <span className="thumb" data-vod="VO10682224">
-                        <img
-                          src="https://fs.jtbc.co.kr/joydata/CP00000001/prog/enter/100sangarts/img/20230428_232943_980_1.jpg"
-                          alt="VO10682224"
-                        />
-                      </span>
-                      <span className="title">
-                        <strong>[59회 백상] TV부문 대상 시상자 - 홍정도&amp;엄정화</strong>
-                        <span>[59회 백상] TV부문 대상 시상자 - 홍정도&amp;엄정화</span>
-                      </span>
-                    </a>
-                  </li>
-                  <li className="swiper-slide">
-                    <a>
-                      <span className="thumb" data-vod="VO10682213">
-                        <img
-                          src="https://fs.jtbc.co.kr/joydata/CP00000001/prog/enter/100sangarts/img/20230428_232818_906_1.jpg"
-                          alt="VO10682213"
-                        />
-                      </span>
-                      <span className="title">
-                        <strong>[59회 백상] 영화부문 대상 - 헤어질 결심</strong>
-                        <span>[59회 백상] 영화부문 대상 - 헤어질 결심</span>
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="button">
-              <a className="prev swiper-button-prev">이전</a>
-              <a className="next swiper-button-next">다음</a>
-            </div>
-          </div>
-          <div className="more">
-            <a className="box-btn" href="/replay">
+        <div className="flex items-center justify-center container-inner w-[100%] h-[100%] flex-col">
+          <ScrollAnimation animateIn="fadeIn">
+            <MainVideoSlider />
+            <a className="text-white box-btn" href="/replay">
               <span>영상 더보기</span>
             </a>
-          </div>
+          </ScrollAnimation>
         </div>
       </div>
       <div className="dim-wrap">
