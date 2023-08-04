@@ -1,10 +1,14 @@
-import candidateData from '@/mocks/candidates.json';
 import { AwardSectorListItem } from '@/components/award/AwardSectorListItem';
-export const CandidateSectorList = () => {
+import type { AwardProps } from '@/models/award.model';
+
+type Props = {
+  listItems: AwardProps[];
+};
+export const CandidateSectorList = ({ listItems }: Props) => {
   return (
     <>
-      {candidateData.map((item, idx) => {
-        return <AwardSectorListItem key={`candidate-${idx}`} {...item} index={idx + 1} />;
+      {listItems.map((item, idx) => {
+        return <AwardSectorListItem key={`candidate-${idx}`} {...item} className={`sector0${idx + 1}`} />;
       })}
     </>
   );

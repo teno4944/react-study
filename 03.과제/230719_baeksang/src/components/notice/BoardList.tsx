@@ -1,28 +1,33 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMemo } from 'react';
 import noticeData from '@/mocks/notices.json';
 import { BoardListItem } from '@/components/notice/BoardListItem';
-import { BoardItemListProps } from '@/models/board.model';
+import { BoardItemProps, CommonPagingModel } from '@/models/board.model';
 import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
-  items: BoardItemListProps;
-};
-export const BoardList = ({ items }: Props) => {
-  const startPage = 1;
-  const itemPerPage = 5;
+  itemsList: BoardItemProps[];
+} & CommonPagingModel;
 
-  const [page, setPage] = useState(startPage);
+export const BoardList = ({
+  itemsList,
+  currentPage,
+  itemPerPage,
+  hasNextPage,
+  hasPrevPage,
+  pagingCounter,
+  nextPage,
+  prevPage,
+  totalItemCount,
+  totalPageCount,
+}: Props) => {
+  const navigate = useNavigate();
 
-  const listItems = useMemo(() => {
-    return items.filter((item, index) => index < itemPerPage * page && index >= itemPerPage * (page - 1));
-  }, [items, page]);
-
-  const maxPage = useMemo(() => Math.ceil(items.length / itemPerPage), [listItems]);
-  const pageList = [...Array(maxPage).keys()].map((x) => x + 1);
-  const handleClickPage = useCallback((cur) => {
-    setPage((prev) => cur);
+  const handleClickPage = useCallback((page: number) => {
+    navigate(`/notice?page=${page.toString()}&size=5`);
   }, []);
+
   return (
     <>
       <table>
@@ -39,7 +44,7 @@ export const BoardList = ({ items }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {listItems.map((item) => {
+          {itemsList.map((item) => {
             return <BoardListItem key={`notice-${item.id}`} {...item} />;
           })}
         </tbody>
@@ -48,10 +53,10 @@ export const BoardList = ({ items }: Props) => {
         <a className="btn-paging-prev">
           <span className="sp_ico btn-prev">first page</span>
         </a>
-        {pageList.map((index) => {
+        {Array.from({ length: totalPageCount }, (v, i) => i + 1).map((index) => {
           return (
             <a
-              className={index === page ? 'curpage active' : ''}
+              className={index === currentPage ? 'curpage active' : ''}
               key={`page-${index}`}
               onClick={() => handleClickPage(index)}
             >

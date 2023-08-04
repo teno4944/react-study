@@ -1,17 +1,32 @@
-import { AwardWinner, AwardItemListProps } from '@/models/award.model';
+import { AwardProps } from '@/models/award.model';
 import { AwardListItem } from '@/components/award/AwardListItem';
+import cn from '@/utils/mergeClass';
 
-type Props = {
+type Props = AwardProps & {
   awards_no?: string;
-  index: number;
-  division_name: string;
-  has_sector_winner: boolean;
-  winner: AwardWinner;
-  list: AwardItemListProps;
+  className?: string;
 };
-export const AwardSectorListItem = ({ index, division_name, has_sector_winner, winner, list }: Partial<Props>) => {
+export const AwardSectorListItem = ({
+  className,
+  division_name,
+  has_sector_winner,
+  winner,
+  list,
+  ...restProps
+}: Partial<Props>) => {
   return (
-    <div className={`awards-sector-wrap sector0${index}`}>
+    <div className={cn(`awards-sector-wrap`, className)}>
+      {/* <div
+        className={cn([
+          `awards-sector-wrap`,
+          className,
+          has_sector_winner && 'test',
+          false ? 'scrolled' : 'sticky',
+          { red: true },
+        ])}
+      >
+      예시 CN클래스 유틸 사용법
+      </div> */}
       <div className="award-sector-title">
         <h3>{division_name}</h3>
       </div>
