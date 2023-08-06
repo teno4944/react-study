@@ -4,7 +4,7 @@ import axios, { isAxiosError } from 'axios';
 import { FormEventHandler, useContext, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 
-const baseApiUri = import.meta.env.VITE_BASE_API_URI || 'https://baeksang-api.fly.dev/api'; // .env 파일에 정의해둔 API URL
+const baseApiUri = import.meta.env.VITE_BASE_API_URL;
 
 type Props = {
   isOpen: boolean;

@@ -7,7 +7,7 @@ import { BoardDetail } from '@/components/notice/BoardDetail';
 import { BoardList } from '@/components/notice/BoardList';
 import { isNotEmpty } from '@/utils';
 
-const baseApiUri = import.meta.env.VITE_BASE_API_URI;
+const baseApiUri = import.meta.env.VITE_BASE_API_URL;
 
 export const Notice = () => {
   const [searchParams, setSearchParams] = useSearchParams();
