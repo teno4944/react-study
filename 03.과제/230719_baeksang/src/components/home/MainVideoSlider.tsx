@@ -1,31 +1,43 @@
-import axios from 'axios';
-const baseApiUri = import.meta.env.VITE_BASE_API_URI; // .env 파일에 정의해둔 API URL
-
-import { Swiper, SwiperSlide } from 'swiper/react'; // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import { Navigation } from 'swiper/modules';
-
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
-import { VideoModal } from '@/components/modal/videoModal';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react'; // Import Swiper styles
+
+import { VideoModal } from '@/components/modal/VideoModal';
+
+const baseApiUri = import.meta.env.VITE_BASE_API_URI; // .env 파일에 정의해둔 API URL
+
 import type { VideoItemProps } from '@/models/video.model';
 
 export const MainVideoSlider = () => {
   // modal비디오 팝업,,
-  const [isVideoModalVisible, setisVideoModalVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isVideoModalVisible, setIsVideoModalVisible] = useState(false);
   const [videoData, setVideoData] = useState<VideoItemProps | null>(null);
 
-  const handleVideoButtonClick = useCallback((open: boolean, item: VideoItemProps) => {
-    setisVideoModalVisible(open);
+  const handleVideoButtonClick = useCallback((item: VideoItemProps) => {
+    openVideoModal();
     setVideoData(item);
   }, []);
 
-  const [listItems, setListItems] = useState([]);
+  const openVideoModal = () => {
+    setIsVideoModalVisible(true);
+  };
+
+  const closeVideoModal = () => {
+    setIsVideoModalVisible(false);
+  };
+
+  const [listItems, setListItems] = useState<VideoItemProps[]>([]);
 
   // API를 호출해서 받은 데이터를 setListItems(API데이터)로 설정한다
   const fetchListItems = useCallback(async () => {
+    setIsLoading(true);
+
     try {
       const { data } = await axios.get(`${baseApiUri}/replays/59`, {
         params: {
@@ -42,6 +54,8 @@ export const MainVideoSlider = () => {
       console.log(err);
     } finally {
       console.log('후보자 데이터를 불러왔거나 불러오지 못했거나 아무튼 끝났다');
+
+      setIsLoading(false);
     }
   }, []);
 
@@ -55,6 +69,10 @@ export const MainVideoSlider = () => {
     slidesPerView: 1,
     navigation: true,
   };
+
+  if (isLoading) {
+    return <div className="flex items-center justify-center text-white bg-black">로딩중입니다...</div>;
+  }
 
   return (
     <>
@@ -81,7 +99,7 @@ export const MainVideoSlider = () => {
                 <button
                   type="button"
                   className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                  onClick={() => handleVideoButtonClick(true, item)}
+                  onClick={() => handleVideoButtonClick(item)}
                 >
                   <img src="https://nstatic.jtbc.co.kr/jtbcplayer/1.0.4/images/bg_big_play.png" alt="" />
                 </button>
@@ -95,11 +113,7 @@ export const MainVideoSlider = () => {
         <FiChevronRight className="absolute top-0 bottom-0 right-0 z-10 mx-auto my-auto text-5xl text-white text-opacity-75 custom-next" />
       </Swiper>
       {/* 메인비디오 모달 레이어 */}
-      <VideoModal
-        videoData={videoData}
-        isOpen={isVideoModalVisible}
-        onClose={() => handleVideoButtonClick(false, null)}
-      />
+      {videoData && <VideoModal videoData={videoData} isOpen={isVideoModalVisible} onClose={() => closeVideoModal()} />}
     </>
   );
 };

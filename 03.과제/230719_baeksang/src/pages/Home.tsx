@@ -31,7 +31,7 @@ export const Home = () => {
           <ScrollAnimation animateIn="fadeIn">
             <MainVideoSlider />
             <a className="text-white box-btn" href="/replay">
-              <span>영상 더보기</span>
+              <span>영상 더보기 - HMR </span>
             </a>
           </ScrollAnimation>
         </div>
