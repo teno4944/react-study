@@ -1,0 +1,111 @@
+.vote-page {
+	background: url(#{$imgnow}/baeksang/2023/bg_vote.png) #4906ab repeat-x 0 0;
+	.notice-title-wrap.sub-title {
+		padding-bottom: 90px;
+	}
+	.sub-title {
+		display: none;
+		&:after {
+			display: none;
+		}
+	}
+	.sector-title {
+		padding: 0 !important;
+		text-align: center;
+		border-bottom: 0 none !important;
+	}
+	.container-inner {
+		position: relative;
+		width: 1340px !important;
+		height: 1452px;
+		@include bg('vote', $size:auto);
+	}
+	.button {
+		position: absolute;
+		top: 484px;
+		width: 100%;
+		text-align: center;
+		a {
+			overflow: hidden;
+			display: inline-block;
+			margin: 0 7px;
+			width: 416px;
+			color: $base-font-color;
+			text-align: center;
+			vertical-align: top;
+			border: 1px solid $gray;
+			.ico-more {
+				display: inline-block;
+				margin-left: 9px;
+				width: 10px;
+				height: 30px;
+				background: url(#{$imgnow}/baeksang/ico_vote.png) 0 8.5px no-repeat;
+			}
+			span {
+				display: inline-block;
+				font-size: 30px;
+				font-weight: 400;
+				line-height: 133px;
+			}
+			&:hover {
+				color: $white;
+				.ico-more {
+					background-image: url(#{$imgnow}/baeksang/ico_vote_w.png);
+				}
+			}
+		}
+	}
+	.votelink-con {
+		position: relative;
+		padding-top: 34px;
+		font-size: 0;
+	}
+}
+
+.vote-con {
+	padding: 889px 0 0 563px;
+	width: 638px;
+}
+
+.movie-area {
+	position: relative;
+	width: 638px;
+	height: 359px;
+}
+.votelink-con {
+	a {
+		display: table-cell;
+		width: 119px;
+		height: 70px;
+		box-sizing: border-box;
+		vertical-align: middle;
+		padding-left: 12px;
+		font-weight: 500;
+		background: url(#{$imgnow}/goldendisk/common/ico_btn.png) 95px center no-repeat;
+		font-size: 14px;
+		line-height: 19px;
+		color: $white;
+		text-align: left;
+		border: 1px solid rgba($color: $white, $alpha: .5);
+		&:hover {
+			background: $primary url(#{$imgnow}/goldendisk/common/ico_btn.png) 95px center no-repeat;
+			border-color: $primary;
+		}
+	}
+	.vote-link {
+		float: left;
+		display: table;
+		width: 199px;
+		height: 70px;
+		+ .vote-link {
+			margin-left: 20px;
+		}
+	}
+	.img-qrcode {
+		display: table-cell;
+		width: 70px;
+		height: 70px;
+		box-sizing: border-box;
+		vertical-align: middle;
+	}
+}

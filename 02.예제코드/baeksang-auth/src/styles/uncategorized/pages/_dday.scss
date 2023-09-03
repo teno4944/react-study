@@ -1,0 +1,107 @@
+.dday-wrap {
+	display: none;
+	height: 80px;
+	background-color: #001838;
+	color: $light4;
+	text-align: center;
+	.dday {
+		position: relative;
+		top: 16px;
+		display: inline-block;
+		padding-left: 150px;
+		vertical-align: top;
+		h2 {
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
+			left: 0;
+			top: 0;
+			font-size: 28px;
+			font-weight: 100;
+			letter-spacing: 2px;
+		}
+		.cnt {
+			position: relative;
+			opacity: 0;
+			visibility: hidden;
+			top: 30px;
+		}
+		.txt {
+			position: relative;
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
+			bottom: -38px;
+		}
+		em {
+			position: relative;
+			opacity: 0;
+			visibility: hidden;
+			top: 30px;
+			display: inline-block;
+			vertical-align: top;
+			width: 15px;
+			margin-top: -3px;
+			font-size: 28px;
+			line-height: 32px;
+		}
+		span {
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+	.timer {
+		letter-spacing: 6px;
+	}
+	.day {
+		position: relative;
+	}
+	.hour {
+		position: relative;
+	}
+	.sec {
+		position: relative;
+	}
+	.cnt {
+		font-size: 28px;
+		line-height: 32px;
+	}
+	.txt {
+		position: absolute;
+		left: 0;
+		bottom: -18px;
+		right: 0;
+		font-size: 12px;
+		line-height: 22px;
+	}
+}
+
+.chrome .dday-wrap .dday em {
+  margin-top: 1px;
+}
+
+.loaded body.mo .main-page .dday-wrap {
+  background-color: #000;
+}
+
+.loaded body.mo .main-page .dday-wrap .dday h2 {
+  top: 5px;
+  font-size: 25px;
+  font-weight: 100;
+}
+
+.loaded body.mo .dday-wrap .dday {
+  top: 10px;
+}
+
+.loaded body.mo .dday-wrap .timer span.cnt {
+  margin-top: 0;
+}
+
+.loaded body.mo .dday-wrap .dday span.txt {
+  bottom: -20px;
+}
+
+.loaded body.mo .dday-wrap .dday em.count {
+  margin-top: 0;
+}

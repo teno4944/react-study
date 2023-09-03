@@ -1,34 +1,43 @@
-import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useParams, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { BoardDetail } from '@/components/notice/BoardDetail';
 import { BoardList } from '@/components/notice/BoardList';
 import { isNotEmpty } from '@/utils';
-
-const baseApiUri = import.meta.env.VITE_BASE_API_URL;
+import { getNoticeItem, getNoticeList } from '@/api/notice.api';
+import { BoardItemModel, BoardListModel } from '@/models/board.model';
+import { BoardView } from '@/components/notice/BoardView';
+import { BoardWriteForm } from '@/components/notice/BoardWriteForm';
 
 export const Notice = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { notice_id } = useParams();
+  const location = useLocation();
+  const isPostNotice = location.pathname == '/notice/post';
   const pageNum = Number(searchParams.get('page') || 1);
 
   // const noticeId = searchParams.get('id');
   // const noticeItem = noticeData.filter((item) => item.id === noticeId).shift();
 
-  const [data, setData] = useState({});
+  const [noticeListData, setNoticeListData] = useState<BoardListModel>();
+  const [noticItemData, setNoticeItemData] = useState<BoardItemModel>();
 
   const fetchListItems = useCallback(async (pageNum: number) => {
     try {
-      const { data } = await axios.get(`${baseApiUri}/notice`, {
-        params: {
-          page: pageNum,
-          size: 5,
-        },
-      });
-      console.log(data);
+      const { data } = await getNoticeList({ page: pageNum, size: 5 });
 
-      setData(data);
+      setNoticeListData(data);
+    } catch (err) {
+      toast.error('공지사항 데이터를 불러오는 데에 에러가 발생했어요.....');
+    }
+  }, []);
+
+  const fetchItem = useCallback(async (id: string) => {
+    try {
+      const { data } = await getNoticeItem(id);
+
+      setNoticeItemData(data);
     } catch (err) {
       toast.error('공지사항 데이터를 불러오는 데에 에러가 발생했어요.....');
     }
@@ -37,7 +46,9 @@ export const Notice = () => {
   // 의존 배열이 비어있으면 컴포넌트를 마운트할 때 실행하고 다시 실행하지 않는다.
   useEffect(() => {
     // API를 호출해서 받은 데이터를 setListItems(API 데이터)로 설정한다.
-    if (pageNum > 0) {
+    if (notice_id) {
+      fetchItem(notice_id);
+    } else if (pageNum > 0) {
       fetchListItems(pageNum);
     }
   }, [pageNum]);
@@ -56,9 +67,16 @@ export const Notice = () => {
           </div>
         </div>
         <div className="tlb-wrap">
-          <div className="container-inner">
-            {isNotEmpty(data?.itemsList) && <BoardList {...data} />}
-            {/* {!noticeId ? <BoardList items={noticeData} /> : <BoardDetail {...noticeItem} />} */}
+          <div className="text-center container-inner">
+            {isPostNotice ? (
+              <BoardWriteForm />
+            ) : noticItemData ? (
+              <BoardView {...noticItemData} />
+            ) : noticeListData ? (
+              <BoardList {...noticeListData} />
+            ) : (
+              <p>작성된 공지사항이 없습니다.</p>
+            )}
           </div>
         </div>
       </div>

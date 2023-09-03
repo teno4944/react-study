@@ -1,0 +1,50 @@
+.paging {
+	a {
+		display: inline-block;
+		margin-left: -1px;
+		min-width: 44px;
+		height: 44px;
+		font-size: 16px;
+		line-height: 44px;
+		color: $dark2;
+		border: 1px solid $gray;
+	}
+	.curpage.active {
+		color: $white;
+		background: $movie;
+		border: 1px solid $movie;
+	}
+	.curpage {
+		&:hover {
+			color: $white;
+			background: $movie;
+			border: 1px solid $movie;
+		}
+	}
+}
+
+.btn-paging-prev {
+	width: 44px;
+	height: 44px;
+	background: #fff url(#{$imgnow}/baeksang/paging_left.png) center no-repeat;
+}
+.btn-prev {
+	font-size: 0;
+	line-height: 0;
+	text-indent: -9999px;
+	&:hover {
+		width: 44px;
+		height: 44px;
+		background: #fff url(#{$imgnow}/baeksang/paging_left.png) center no-repeat;
+	}
+}
+.btn-paging-next {
+	width: 44px;
+	height: 44px;
+	background: url(#{$imgnow}/baeksang/paging_right.png) center no-repeat;
+}
+.btn-next {
+	font-size: 0;
+	line-height: 0;
+	text-indent: -9999px;
+}

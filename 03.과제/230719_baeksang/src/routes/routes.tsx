@@ -6,6 +6,9 @@ import { Home } from '@/pages/Home';
 import { Notice } from '@/pages/Notice';
 import { Replay } from '@/pages/Replay';
 import { Winners } from '@/pages/Winners';
+import { BoardView } from '@/pages/BoardView';
+import { BoardDetail } from '@/components/notice/BoardDetail';
+import { BoardWriteForm } from '@/components/notice/BoardWriteForm';
 
 export const routes: RouteObject[] = [
   // 첫 화면 (/)
@@ -50,6 +53,16 @@ export const routes: RouteObject[] = [
   {
     path: 'notice',
     element: <Notice />,
+    children: [
+      {
+        path: 'view/:notice_id',
+        element: <Notice />,
+      },
+      {
+        path: 'post',
+        element: <BoardWriteForm />,
+      },
+    ],
   },
 ];
 

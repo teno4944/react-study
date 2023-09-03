@@ -1,14 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useMemo } from 'react';
-import noticeData from '@/mocks/notices.json';
+
 import { BoardListItem } from '@/components/notice/BoardListItem';
-import { BoardItemProps, CommonPagingModel } from '@/models/board.model';
+import { BoardListModel } from '@/models/board.model';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-type Props = {
-  itemsList: BoardItemProps[];
-} & CommonPagingModel;
 
 export const BoardList = ({
   itemsList,
@@ -21,7 +17,7 @@ export const BoardList = ({
   prevPage,
   totalItemCount,
   totalPageCount,
-}: Props) => {
+}: BoardListModel) => {
   const navigate = useNavigate();
 
   const handleClickPage = useCallback((page: number) => {
@@ -30,6 +26,11 @@ export const BoardList = ({
 
   return (
     <>
+      <div className="p-3 text-left">
+        <a href="/notice/post" className="w-0 pt-1 pb-1 box-btn">
+          글쓰기
+        </a>
+      </div>
       <table>
         <colgroup>
           <col></col>
@@ -50,9 +51,11 @@ export const BoardList = ({
         </tbody>
       </table>
       <div className="paging">
-        <a className="btn-paging-prev">
-          <span className="sp_ico btn-prev">first page</span>
-        </a>
+        {currentPage > 1 && (
+          <a className="btn-paging-prev">
+            <span className="sp_ico btn-prev">first page</span>
+          </a>
+        )}
         {Array.from({ length: totalPageCount }, (v, i) => i + 1).map((index) => {
           return (
             <a
@@ -64,10 +67,11 @@ export const BoardList = ({
             </a>
           );
         })}
-        {/* <a className="curpage active">1</a> */}
-        <a className="btn-paging-next">
-          <span className="sp_ico btn-next">last page</span>
-        </a>
+        {hasNextPage && (
+          <a className="btn-paging-next">
+            <span className="sp_ico btn-next">last page</span>
+          </a>
+        )}
       </div>
     </>
   );

@@ -3,13 +3,28 @@ import { menuItems } from '@/constants/menuItems';
 import { HeaderLogo } from '@/components';
 import { useCallback, useContext, useState } from 'react';
 import { SignInModal } from '@/components/modal/SignInModal';
-import { UserContext } from '@/Providers';
+import { UserContext } from '@/providers';
+import { useAuth } from '@/hooks';
+import { useNavigate } from 'react-router-dom';
 
 export const HeaderNav = () => {
-  const [isSIgnupModalVisible, setIsSIgnupModalVisible] = useState(false);
+  const [isSignupModalVisible, setIsSignupModalVisible] = useState(false);
+
   const { userInfo } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const { logout } = useAuth({
+    onSuccess() {
+      navigate('/');
+    },
+  });
+
   const handleSignupButtonClick = useCallback((open: boolean) => {
-    setIsSIgnupModalVisible(open);
+    setIsSignupModalVisible(open);
+  }, []);
+
+  const handleSignOutButtonClick = useCallback(() => {
+    logout();
   }, []);
 
   return (
@@ -25,9 +40,14 @@ export const HeaderNav = () => {
             })}
             <li className="text-sm text-purple-500 hover:font-bold">
               {userInfo.id ? (
-                <span>
-                  {userInfo.name}({userInfo.role})
-                </span>
+                <div>
+                  <div>
+                    {userInfo.name} ({userInfo.role})
+                  </div>
+                  <button type="button" onClick={() => handleSignOutButtonClick()}>
+                    로그아웃
+                  </button>
+                </div>
               ) : (
                 <button type="button" onClick={() => handleSignupButtonClick(true)}>
                   회원가입/로그인
@@ -39,7 +59,7 @@ export const HeaderNav = () => {
       </div>
 
       {/* 회원가입 모달 레이어 */}
-      <SignInModal isOpen={isSIgnupModalVisible} onClose={() => handleSignupButtonClick(false)} />
+      <SignInModal isOpen={isSignupModalVisible} onClose={() => handleSignupButtonClick(false)} />
     </header>
   );
 };

@@ -1,0 +1,260 @@
+.notice-wrap {
+	background-color: $white;
+	.container-inner {
+		width: 1160px;
+		padding: 94px 0 130px;
+	}
+	h2 {
+		color: $base-font-color;
+		font-size: 35px;
+		font-weight: 300;
+		text-align: center;
+		strong {
+			font-weight: 500;
+		}
+	}
+	.desc {
+		margin-top: 13px;
+		color: $dark2;
+		font-size: 20px;
+		text-align: center;
+	}
+	.notice {
+		margin-top: 57px;
+		border-top: 1px solid $light4;
+	}
+	.head {
+		position: relative;
+		padding: 23px 0 25px 11px;
+		h3 {
+			font-size: 24px;
+			font-weight: 700;
+		}
+		a {
+			position: absolute;
+			right: 2px;
+			top: 50%;
+			margin-top: -10.5px;
+			span {
+				display: block;
+				height: 21px;
+				padding-right: 31px;
+				@include bg('btn-more',$position:99% 0);
+				color: $dark2;
+				font-size: 16px;
+				line-height: 21px;
+			}
+		}
+	}
+	.list {
+		li {
+			margin-top: 12px;
+			&:first-child {
+				margin-top: 0;
+			}
+			&.none-list {
+				padding: 17px 20px 18px 30px;
+				border: 1px solid $light4;
+			}
+		}
+		a {
+			position: relative;
+			display: block;
+			padding: 17px 20px 18px 30px;
+			border: 1px solid $light4;
+			&:focus {
+				box-shadow: 0 0 9px rgba(0, 0, 0, 0.2);
+				i {
+					border-bottom: 1px solid $gray3;
+				}
+			}
+			&:hover {
+				box-shadow: 0 0 9px rgba(0, 0, 0, 0.2);
+				i {
+					border-bottom: 1px solid $gray3;
+				}
+			}
+			strong {
+				display: block;
+				margin-right: 115px;
+				font-size: 20px;
+				font-weight: 700;
+			}
+			span {
+				@include ellipsis(2);
+				margin-top: 11px;
+				padding-bottom: 1px;
+				color: $gray3;
+				font-size: 16px;
+				font-weight: 100;
+				letter-spacing: 0;
+				line-height: 23px;
+			}
+			i {
+				font-style: normal;
+			}
+			em {
+				position: absolute;
+				right: 20px;
+				top: 20px;
+				color: $dark2;
+				font-size: 18px;
+				font-weight: 100;
+			}
+		}
+	}
+	.share {
+		margin-top: 30px;
+		text-align: right;
+		a {
+			display: inline-block;
+			width: 67px;
+			height: 68px;
+			overflow: hidden;
+			margin-left: 4px;
+			background: none no-repeat 0 0;
+			text-align: left;
+			text-indent: -999em;
+			vertical-align: top;
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+		a.tiktok {
+			background-image: url(#{$imgnow}/baeksang/tiktok_icon.png);
+			&:focus {
+				box-shadow: inset 0 0 0 3px $white 0 0 1px rgba(0, 0, 0, 0);
+			}
+			&:hover {
+				box-shadow: inset 0 0 0 3px $white 0 0 1px rgba(0, 0, 0, 0);
+			}
+		}
+		a.insta {
+			background-image: url(#{$imgnow}/baeksang/instagram_icon.png);
+			&:focus {
+				box-shadow: inset 0 0 0 3px $white 0 0 1px rgba(0, 0, 0, 0);
+			}
+			&:hover {
+				box-shadow: inset 0 0 0 3px $white 0 0 1px rgba(0, 0, 0, 0);
+			}
+		}
+		a.facebook {
+			background-image: url(#{$imgnow}/baeksang/btn-facebook.gif);
+			&:focus {
+				box-shadow: inset 0 0 0 3px $white 0 0 1px rgba(0, 0, 0, 0);
+			}
+			&:hover {
+				box-shadow: inset 0 0 0 3px $white 0 0 1px rgba(0, 0, 0, 0);
+			}
+		}
+		a.youtube {
+			background-image: url(#{$imgnow}/baeksang/btn-youtube.gif);
+			&:focus {
+				box-shadow: inset 0 0 0 3px $white 0 0 1px rgba(0, 0, 0, 0);
+			}
+			&:hover {
+				box-shadow: inset 0 0 0 3px $white 0 0 1px rgba(0, 0, 0, 0);
+			}
+		}
+	}
+	.banner {
+		margin-top: 62px;
+		text-align: center;
+		a {
+			display: block;
+		}
+		img {
+			display: block;
+		}
+	}
+}
+
+
+
+.notice-page {
+	.notice-title-wrap.sub-title {
+		padding-bottom: 90px;
+	}
+	.button {
+		margin-top: 62px;
+		text-align: center;
+	}
+	a.box-btn {
+		display: inline-block;
+		width: 288px;
+		overflow: hidden;
+		color: $base-font-color;
+		border: 1px solid $gray;
+		text-align: center;
+		vertical-align: top;
+		span {
+			display: inline-block;
+			font-size: 22px;
+			font-weight: 400;
+			line-height: 59px;
+		}
+		&:hover {
+			background-color: $primary;
+			border-color: $primary;
+			color: $white;
+		}
+	}
+	.sector-title {
+		border-bottom: none;
+	}
+	.sub-title {
+		&:after {
+			display: none;
+		}
+	}
+	.tlb-wrap {
+		padding-bottom: 130px;
+	}
+	table {
+		width: 100%;
+		border-top: 2px solid #686868;
+		border-bottom: 1px solid #eaeaea;
+	}
+	thead {
+		th {
+			padding: 15px 0;
+			font-size: 18px;
+			line-height: 30px;
+			border-bottom: 1px solid $black;
+		}
+	}
+	td {
+		padding: 20px 0;
+		line-height: 30px;
+		text-align: center;
+		color: $dark2;
+		border-bottom: 1px solid $light4;
+	}
+	.title {
+		text-align: left;
+		a {
+			font-weight: 400;
+			color: $dark2;
+			&:hover {
+				color: #00306e;
+				text-decoration: underline;
+			}
+		}
+	}
+	tbody {
+		th {
+			font-size: 18px;
+		}
+		td {
+			font-size: 18px;
+		}
+	}
+	.paging {
+		padding: 60px 0 0;
+		font-size: 0;
+		text-align: center;
+	}
+	.banner {
+		margin-top: 62px;
+	}
+}

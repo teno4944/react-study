@@ -1,0 +1,433 @@
+// 컨텐츠 내부 가로 사이즈
+@mixin inner($width:$pc-width) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $width;
+}
+
+// flex box
+@mixin flex($j:center, $a:center) {
+  display: flex;
+  @if $j == 'sb' {
+    $j: space-between;
+  }
+  @if $j == 's' {
+    $j: flex-start;
+  }
+  @if $a == 's' {
+    $a: flex-start;
+  }
+  @if $a == 'e' {
+    $a: flex-end;
+  }
+  justify-content: $j;
+  align-items: $a;
+}
+
+// 종횡비 (If support IE)
+@mixin aspect-ratio($w: 16, $h: 9) {
+  position: relative;
+  > div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // box-sizing: border-box;
+  }
+  &::before {
+    content: '';
+    display: block;
+    padding-top: calc(#{$h} / #{$w} * 100%);
+  }
+}
+
+// 이미지 비율
+@mixin img-ratio($w: 3, $h:4, $fit:null) {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: calc(#{$h} / #{$w} * 100%);
+  > img {
+    @include position(absolute, 0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+    object-fit: $fit;
+  }
+}
+
+// 말줄임
+// $line : 행 수
+// Usage : width 값 필수
+// 1 line - @include ellipsis;
+// 3 line - @include ellipsis(3);
+@mixin ellipsis($line : 1){
+  @if($line == 1) {
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  } @else {
+    display:-webkit-box;
+    -webkit-line-clamp:$line;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    /* autoprefixer: on */
+  }
+}
+
+// border
+@mixin border($pos: top, $width: 1px, $color: $gray, $type: solid) {
+  @if($pos != 'all') {
+    border-#{$pos}: #{$width} $type #{$color};
+  } @else {
+    border: #{$width} $type #{$color};
+  }
+}
+
+// fill Arrow
+@mixin arr-fill($direction, $size, $color) {
+  $realsize: $size / 2;
+  $pos: $size / 4;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    @if ($direction == top) {
+      top: calc(50% - #{$pos});
+    }
+    @if ($direction == bottom) {
+      top: calc(50% + #{$pos});
+    }
+    width: 0;
+    height: 0;
+    $directions: ('bottom', 'left', 'top', 'right');
+    $positions: ('top', 'right', 'bottom', 'left');
+    @each $position in $positions {
+      $index: index($positions, $position);
+      @if nth($directions, $index) == $direction {
+        border-#{$position}: $realsize solid $color;
+      } @else {
+        border-#{$position}: $realsize solid transparent;
+      }
+    }
+  }
+}
+
+// line arrow
+@mixin arr-line($size: 10px, $border: 1px, $color: #888,  $direction: right, $margin: 4px) {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: $size;
+  height: $size;
+  @if ($direction == right) {
+    right: $margin;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  @if ($direction == left) {
+    left: $margin;
+  }
+  border-top: $border solid $color;
+  border-right: $border solid $color;
+}
+
+
+
+@mixin font($ff: JTBC, $fw: normal) {
+  @if $ff == 'Noto' {
+    $ff: 'Noto Sans KR';
+  }
+  font-family: $ff;
+  font-weight: $fw;
+}
+
+// font style
+@mixin font-style($size: 16px, $weight: 400, $lts: 0, $lh: 1, $color: #333) {
+  font-size: $size;
+  font-weight: $weight;
+  letter-spacing: $lts;
+  line-height: $lh;
+  color: $color;
+}
+
+
+/* Text size class. !import Text size class in _variables.scss */
+// Usage:
+// .fs-md {
+//    @include text-setting('md');
+// {
+@function font-size($level) {
+  @return map-get(map-get($text-settings, $level), 'font-size');
+}
+
+@function line-height($level) {
+  @return map-get(map-get($text-settings, $level), 'line-height');
+}
+
+@mixin text-setting($level) {
+  font-size: font-size($level);
+  line-height: line-height($level);
+}
+
+// cross x maker - not support ie
+// parent element position: realtive;
+@mixin xdraw($size: 10px, $thick: 1px, $color: #666, $pos: center) {
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @if ($pos == left) {
+      left: 0 - $size;
+      right: auto;
+    }
+    @if ($pos == right) {
+      left: auto;
+      right: 0 - $size;
+    }
+    display: block;
+    width: $size;
+    height: 1px;
+    border-top: $thick solid $color;
+  }
+  &::before {
+    transform: translateY(-50%) rotate(45deg);
+  }
+  &::after {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+
+// 배경
+// 사용법 : @include bg('파일명', 반복, 사이즈, 포지션, 패스, 포맷 순 작성 or 사용할 인자값만 선택 $size:100%);
+@mixin bg($name,$repeat:no-repeat,$size:contain,$position:0 0,$path:'baeksang/2023',$format:'png') {
+  background-image: url('#{$imgnow}/#{$path}/#{$name}.#{$format}');
+  background-size: $size;
+  background-repeat: $repeat;
+  background-position: $position;
+}
+
+// bg color
+@mixin bgColor($color: $gray) {
+  background-color: #{$color} !important;
+}
+
+// bg img
+@mixin bgImg($name, $path:'baeksang/2023',$format:'png') {
+  background-image: url('#{$imgnow}/#{$path}/#{$name}.#{$format}');
+}
+
+// High resolution break point(retina)
+@mixin retina-bp {
+  @media (min--moz-device-pixel-ratio: 1.3),
+          (-o-min-device-pixel-ratio: 2.6/2),
+          (-webkit-min-device-pixel-ratio: 1.3),
+          (min-device-pixel-ratio: 1.3),
+          (min-resolution: 1.3dppx) {
+    @content;
+  }
+  }
+  @mixin retina-bp2 {
+  @media (min--moz-device-pixel-ratio: 1.5),
+          (-o-min-device-pixel-ratio: 3/2),
+          (-webkit-min-device-pixel-ratio: 1.5),
+          (min-device-pixel-ratio: 1.5),
+          (min-resolution: 192dpi) {
+    @content;
+  }
+}
+
+// 스크롤바
+@mixin scrollbars($size: 4px, $foregroundColor: #A5A5A5, $backgroundColor: #fff, $borderRadius: 2px) {
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+    border-radius: $borderRadius;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $foregroundColor;
+    border-radius: $borderRadius;
+  }
+  &::-webkit-scrollbar-track {
+    background: $backgroundColor;
+    border-radius: $borderRadius;
+  }
+  & {
+    scrollbar-face-color: $foregroundColor;
+    scrollbar-track-color: $backgroundColor;
+  }
+}
+
+// keyframe
+@mixin keyframe ($animation-name) {
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+// Usage
+// @extend %clearfix;
+
+// ul, ol, dl list reset
+%listreset {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+// float 해제
+@mixin clearBoth() {
+  &:after{
+      content: "";
+      display: block;
+      clear: both;
+  }
+}
+
+// 밴더프리픽스
+@mixin prefix($property, $value) {
+  $prefixes: webkit, moz, ms, o;
+  @each $prefix in $prefixes {
+      #{'-' + $prefix + '-' + $property}: $value;
+  }
+  // 기본
+  #{$property}: $value;
+}
+
+// 트랜지션
+@mixin transition($prop: all, $duration: 0.5s, $timing: ease , $delay : 0) {
+  transition: $prop $duration $timing $delay;
+}
+
+// position
+@mixin position($position, $top: null, $left: null, $right: null, $bottom: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+// animation
+@mixin rotateAnimate($deg,$time,$delay){
+  transition: all $time ease $delay;
+  transform: rotate($deg);
+}
+
+// @mixin@  mediaQuery 디바이스별 적용 @mixin@ 
+@mixin mobile{
+  @media screen and (max-width: 480px) {
+      @content;
+  }
+}
+@mixin tablet {
+  @media screen and (min-width: 480px) and (max-width: 1920px) {
+      @content;
+  }
+} 
+@mixin iphoneSe {
+  @media screen and (min-width: 350px) and (max-width: 375px) {
+      @content;
+  }
+}  
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+      @content;
+  }
+}
+
+// 포지션 정렬 기본은  left / top 가운데 정렬
+@mixin posAlign($left:null){
+  @if($left=="left"){
+      left:50%;
+      transform: translateX(-50%);
+  }
+  @else if($left=="top"){
+      top:50%;
+      transform: translateY(-50%);
+  }
+  @else{
+      left:50%;
+      top:50%;
+      transform: translate(-50%,-50%);
+  }
+}
+
+// 그라디언트 버튼 기본은 흰색 검은색
+// 왼쪽에서 우측
+@mixin GradientHorizontal($color1:#fff,$color2:#000,$color3:null){
+  background: $color1; /* Old browsers */
+  @if $color3 {
+      background: -moz-linear-gradient(left,  $color1 0%, $color2 50%,$color3 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left,  $color1 0%,$color2 50%,$color3 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right,  $color1 0%,$color2 50%,$color3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+  @else{
+      background: -moz-linear-gradient(left,  $color1 0%, $color2 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left,  $color1 0%,$color2 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right,  $color1 0%,$color2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+}
+// 위에서 아래
+@mixin GradientVertical($color1:#fff,$color2:#000,$color3:null) {
+  background: $color1; /* Old browsers */
+  @if $color3 {
+      background: -moz-linear-gradient(top,  $color1 0%, $color2,$color3 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  $color1 0%,$color2,$color3 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  $color1 0%,$color2,$color3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+  @else{
+      background: -moz-linear-gradient(top,  $color1 0%, $color2 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  $color1 0%,$color2 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  $color1 0%,$color2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+}
+// 대각선 아래
+@mixin GradienDiagoDown($color1:#fff,$color2:#000,$color3:null) {
+  background: $color1; /* Old browsers */
+  @if $color3 {
+      background: -moz-linear-gradient(-45deg,  $color1 0%, $color2 50%,$color3 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(-45deg,  $color1 0%,$color2 50%,$color3 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(135deg,  $color1 0%,$color2 50%,$color3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+  @else{
+      background: -moz-linear-gradient(-45deg,  $color1 0%, $color2 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(-45deg,  $color1 0%,$color2 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(135deg,  $color1 0%,$color2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+}
+// 대각선 위
+@mixin GradienDiagoUp($color1:#fff,$color2:#000,$color3:null) {
+  background: $color1; /* Old browsers */
+  @if $color3 {
+      background: -moz-linear-gradient(45deg,  $color1 0%, $color2 50%,$color3 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(45deg,  $color1 0%,$color2 50%,$color3 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(45deg,  $color1 0%,$color2 50%,$color3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+  @else{
+      background: -moz-linear-gradient(45deg,  $color1 0%, $color2 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(45deg,  $color1 0%,$color2 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(45deg,  $color1 0%,$color2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+}
+// 가운데서 분포
+@mixin GradienRadial($color1:#fff,$color2:#000,$color3:null){
+  background: $color1; /* Old browsers */
+  @if $color3 {
+      background: -moz-radial-gradient(center, ellipse cover,  $color1 0%, $color2 50%,$color3 100%); /* FF3.6-15 */
+      background: -webkit-radial-gradient(center, ellipse cover,  $color1 0%,$color2 50%,$color3 100%); /* Chrome10-25,Safari5.1-6 */
+      background: radial-gradient(ellipse at center,  $color1 0%,$color2 50%,$color3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+  @else{
+      background: -moz-radial-gradient(center, ellipse cover,  $color1 0%, $color2 100%); /* FF3.6-15 */
+      background: -webkit-radial-gradient(center, ellipse cover,  $color1 0%,$color2 100%); /* Chrome10-25,Safari5.1-6 */
+      background: radial-gradient(ellipse at center,  $color1 0%,$color2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+}

@@ -1,0 +1,241 @@
+.awards-page {
+	.awards-title-wrap.sub-title {
+		padding-bottom: 90px;
+	}
+	.container-inner {
+		position: relative;
+	}
+	.sub-title {
+		&:after {
+			display: none;
+		}
+	}
+	.award-sector-title {
+		position: relative;
+		padding: 46px 0 16px;
+		&:after {
+			position: absolute;
+			top: 78px;
+			display: block;
+			margin-top: -6px;
+			width: 100%;
+			height: 1px;
+			content: "";
+			clear: both;
+			background: $light4;
+		}
+		h3 {
+			position: relative;
+			display: inline-block;
+			width: 282px;
+			height: 50px;
+			font-size: 26px;
+			line-height: 50px;
+			text-align: center;
+			color: $white;
+			z-index: 1;
+		}
+	}
+	.awards-con {
+		position: relative;
+		padding-bottom: 74px;
+		zoom: 1;
+		&:after {
+			display: block;
+			content: "";
+			clear: both;
+		}
+		span {
+			display: block;
+		}
+		strong {
+			display: block;
+		}
+		em {
+			display: block;
+		}
+	}
+	.awards-prize {
+		float: left;
+		padding-right: 20px;
+		width: 282px;
+		.list-thumb {
+			overflow: hidden;
+			position: relative;
+			display: block;
+			margin-bottom: 24px;
+			width: 282px;
+			height: 367px;
+			line-height: 282px;
+			background: #eaeaea;
+			background-size: 100% 100%;
+			&:after {
+				position: absolute;
+				display: block;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				content: "";
+				// @include bg('bg-list-thumb');
+			}
+			img {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin: -142px 0 0 -109px;
+				width: 218px;
+				height: 284px;
+				z-index: 1;
+			}
+		}
+		.title-prize {
+			font-size: 28px;
+			line-height: 41px;
+			font-weight: 500;
+		}
+		em {
+			margin-top: 7px;
+			font-size: 24px;
+			line-height: 32px;
+			font-weight: bold;
+			color: $base-font-color;
+		}
+		.name {
+			font-size: 24px;
+			line-height: 32px;
+			color: $base-font-color;
+		}
+	}
+	.awards-prize-con {
+		padding-bottom: 26px;
+	}
+	.awards-sector-wrap {
+		.award-sector-title {
+			h3 {
+				background: $special;
+			}
+		}
+		&.sector01 {
+			.list-thumb {
+				&:after {
+					background: url('#{$imgnow}/baeksang/2023/bg-list-thumb1.png') rgba(0,0,0,.6) no-repeat 50% 100% / 100% auto;
+				}
+			}
+			.title-prize {
+				color: $tv;
+			}
+			.award-sector-title {
+				h3 {
+					background: $tv;
+				}
+			}
+		}
+		&.sector02 {
+			.list-thumb {
+				&:after {
+					background: url('#{$imgnow}/baeksang/2023/bg-list-thumb2.png') rgba(0,0,0,.6) no-repeat 50% 100% / 100% auto;
+				}
+			}
+			.title-prize {
+				color: $movie;
+			}
+			.award-sector-title {
+				h3 {
+					background: $movie;
+				}
+			}
+		}
+		&.sector03 {
+			.list-thumb {
+				&:after {
+					background: url('#{$imgnow}/baeksang/2023/bg-list-thumb3.png') rgba(0,0,0,.6) no-repeat 50% 100% / 100% auto;
+				}
+			}
+			.title-prize {
+				color: $drama;
+			}
+			.award-sector-title {
+				h3 {
+					background: $drama;
+				}
+			}
+		}
+		&.sector04 {
+			.title-prize {
+				color: $special;
+			}
+			.award-sector-title {
+				h3 {
+					background: $special;
+				}
+			}
+		}
+		&.awarded-only-list {
+			.awards-awarded {
+				width: 100%;
+			}
+			.awarded-list {
+				margin: 0 -26px;
+				li {
+					margin: 0 26px;
+				}
+			}
+		}
+	}
+
+	.awards-awarded {
+		float: left;
+		width: 858px;
+	}
+	.awarded-list {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		margin-right: -12px;
+		zoom: 1;
+		li {
+			margin: 0 12px;
+			padding-bottom: 0;
+			width: 150px;
+			min-height: calc((150px / 9 * 11.76) + 178px);//세로196
+			.list-thumb {
+				overflow: hidden;
+				display: block;
+				margin-bottom: 12px;
+				text-align: center;
+				background: $light2;
+				width: 150px;
+				height: 210px;
+				line-height: 196px;
+				img {
+					max-width: 100%;
+					max-height: 100%;
+					vertical-align: middle;
+					width: 100%;
+					height: 100%;
+					margin-top: 0;
+				}
+			}
+			.title-prize {
+				font-size: 18px;
+				line-height: 30px;
+				font-weight: 500;
+			}
+			em {
+				overflow: hidden;
+				font-size: 18px;
+				line-height: 30px;
+				font-weight: bold;
+				color: $base-font-color;
+			}
+			.name {
+				overflow: hidden;
+				font-size: 18px;
+				line-height: 24px;
+				color: $base-font-color;
+			}
+		}
+	}
+}

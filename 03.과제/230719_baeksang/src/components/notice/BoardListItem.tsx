@@ -1,17 +1,14 @@
-type Props = {
-  id: string;
-  title: string;
-  date: string;
-  contents: string;
-};
-export const BoardListItem = ({ id, title, date }: Partial<Props>) => {
+import { BoardListItemModel } from '@/models/board.model';
+import { formatDate } from '@/utils';
+
+export const BoardListItem = ({ id, title, created_at }: BoardListItemModel) => {
   return (
     <tr>
       <td>{id}</td>
       <td className="title">
-        <a href={`/notice?id=${id}`}>{title}</a>
+        <a href={`/notice/view/${id}`}>{title}</a>
       </td>
-      <td>{date}</td>
+      <td>{formatDate(created_at, 'YYYY. MM. DD. H:mm')}</td>
     </tr>
   );
 };

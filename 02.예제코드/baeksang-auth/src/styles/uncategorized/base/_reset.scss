@@ -1,0 +1,224 @@
+@import 'https://nstatic.jtbc.co.kr/baeksang/css/font.css';
+
+body {
+	margin: 0;
+	padding: 0;
+	font-size: $base-font-size;
+	line-height: 1.25;
+	font-family: $base-font-family;
+	font-weight: 300;
+	letter-spacing: -0.075em;
+	color: $base-font-color;
+}
+div {
+	margin: 0;
+	padding: 0;
+}
+p {
+	margin: 0;
+	padding: 0;
+}
+pre {
+	margin: 0;
+	padding: 0;
+}
+dl {
+	margin: 0;
+	padding: 0;
+}
+dt {
+	margin: 0;
+	padding: 0;
+}
+dd {
+	margin: 0;
+	padding: 0;
+}
+input {
+	margin: 0;
+	padding: 0;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+}
+form {
+	margin: 0;
+	padding: 0;
+}
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+legend {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: -9999em;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+h1 {
+	margin: 0;
+	padding: 0;
+}
+h2 {
+	margin: 0;
+	padding: 0;
+}
+h3 {
+	margin: 0;
+	padding: 0;
+}
+h4 {
+	margin: 0;
+	padding: 0;
+}
+h5 {
+	margin: 0;
+	padding: 0;
+}
+h6 {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: outside none none;
+}
+ol {
+	margin: 0;
+	padding: 0;
+	list-style: outside none none;
+}
+li {
+	margin: 0;
+	padding: 0;
+	list-style: outside none none;
+}
+a {
+	color: $base-font-color;
+	text-decoration: none;
+	cursor: pointer;
+	&:active {
+		text-decoration: none;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+	&:visited {
+		text-decoration: none;
+	}
+}
+button {
+	cursor: pointer;
+	overflow: visible;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	white-space: nowrap;
+	cursor: pointer;
+	&::-moz-focus-inner {
+		padding: 0;
+		border: 0;
+		padding: 0;
+		border: 0;
+	}
+	span {
+		position: relative;
+	}
+}
+em {
+	font-style: normal;
+}
+address {
+	font-style: normal;
+}
+img {
+	border: 0;
+	vertical-align: top;
+}
+hr {
+	display: none;
+}
+article {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+aside {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+dialog {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+header {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+section {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+footer {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+nav {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+figure {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+table {
+	padding: 0;
+	margin: 0;
+	border-spacing: 0;
+	border: 0;
+	border-collapse: collapse;
+}
+caption {
+	position: absolute;
+	top: -9999em;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+.blind {
+	position: absolute;
+	top: -9999em;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+.hidden {
+	position: absolute;
+	left: -5000px;
+	top: 0;
+	visibility: hidden;
+	overflow: hidden;
+	line-height: 0.1%;
+	font-size: 0.1%;
+	width: 0.1%;
+	height: 0.1%;
+}
+textarea {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+}
+.container-wrap {
+	display: block !important;
+}

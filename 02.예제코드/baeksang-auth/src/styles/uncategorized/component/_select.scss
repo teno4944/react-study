@@ -1,0 +1,155 @@
+.selectbox_wrap {
+	font-weight: 400;
+	position: relative;
+	display: inline-block;
+	width: 235px;
+	height: 42px;
+	padding-left: 0;
+	text-align: left;
+	vertical-align: -9px;
+	border: 1px solid $gray;
+	background: #f0f0f0;
+	position: absolute;
+	right: 0;
+	top: 72px;
+	height: 42px;
+	vertical-align: middle;
+	.select_result {
+		font-size: 18px;
+		line-height: 42px;
+		display: block;
+		overflow: hidden;
+		width: 200px;
+		height: 42px;
+		padding: 0 40px 0 0;
+		text-indent: 18px;
+		line-height: 42px;
+		height: 42px;
+		background-position: right top;
+		&:hover {
+			text-decoration: none;
+			color: #1b2637;
+		}
+		&:link {
+			text-decoration: none;
+			color: #1b2637;
+		}
+		&:visited {
+			text-decoration: none;
+			color: #1b2637;
+		}
+		.ico-select {
+			position: absolute;
+			right: 0;
+			top: 0;
+			margin: -1px;
+			width: 44px;
+			height: 44px;
+			background: url(#{$imgnow}/baeksang/ico_list_more.png) center no-repeat;
+			border-left: 1px solid $gray;
+		}
+	}
+	.select_arrow {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: block;
+		width: 36px;
+		height: 30px;
+		outline: 0;
+	}
+	.selectbox_wrapDisabled {
+		border: 1px solid #515151;
+		background-color: #3c3c3c;
+	}
+	.sel_list {
+		position: absolute;
+		z-index: 5;
+		top: 42px;
+		left: -924px;
+		display: none;
+		overflow-y: auto;
+		width: 235px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border: 1px solid $gray;
+		background-color: $white;
+		li {
+			float: left;
+			margin: 0 20px;
+			width: 65px;
+			&:hover {
+				a {
+					font-weight: bold;
+					color: #00306e;
+					text-decoration: underline;
+				}
+			}
+		}
+		li.on {
+			a {
+				font-weight: bold;
+				color: #00306e;
+				text-decoration: underline;
+			}
+		}
+		a {
+			line-height: 39px;
+			display: block;
+			overflow: hidden;
+			height: 39px;
+			font-size: 16px;
+			color: $dark2;
+			text-align: center;
+			outline: 0;
+			&:focus {
+				outline: dotted 1px;
+			}
+		}
+		.sbDisabled {
+			display: block;
+			padding: 7px 0 7px 3px;
+			color: $gray2;
+		}
+	}
+	.sel_list.reversal {
+		top: auto;
+		bottom: 36px;
+	}
+	select {
+		display: none;
+	}
+}
+.selectbox_wrap.active {
+	.sel_list {
+		display: block;
+		padding: 0 55px 20px;
+		width: 1048px;
+		&:before {
+			display: block;
+			padding: 40px 0 30px;
+			content: "회차를 선택해 주세요";
+			font-size: 22px;
+			color: $black;
+			font-weight: bold;
+			text-align: center;
+		}
+	}
+	.select_result {
+		.ico-select {
+			background: #2a2a2a url(#{$imgnow}/baeksang/ico_list_more_up.png) center no-repeat;
+		}
+	}
+}
+.selectbox {
+	display: inline;
+}
+.selectbox.block {
+	display: block;
+}
+.selectbox_wrap.disabled {
+	.select_result {
+		// background: url("/images/common/select_arrow_disabled.gif") right 3px no-repeat #eee;
+	}
+}

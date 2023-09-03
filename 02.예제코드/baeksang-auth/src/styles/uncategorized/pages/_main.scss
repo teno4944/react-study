@@ -1,0 +1,52 @@
+.main-page {
+	a.box-btn {
+		display: inline-block;
+		width: 220px;
+		overflow: hidden;
+		border: 1px solid $gray;
+		text-align: center;
+		vertical-align: top;
+		span {
+			display: block;
+			font-size: 22px;
+			font-weight: 400;
+			line-height: 59px;
+			background: transparent;
+		}
+	}
+	.info-wrap {
+		a.box-btn {
+			&:hover {
+				border-color: $primary;
+			}
+		}
+	}
+
+	.more {
+		a.box-btn {
+			&:hover {
+				border-color: $primary;
+				transition-delay: 0;
+				span {
+					background: $primary;
+					color: $white;
+				}
+			}
+		}
+	}
+
+	.dday-wrap {
+		position: relative;
+		height: 107px;
+		background: $black;
+		.dday {
+			top: 27px;
+			h2 {
+				margin-top: 3px;
+			}
+		}
+	}
+	.top-wrap {
+		display: none;
+	}
+}
