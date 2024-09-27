@@ -31,4 +31,5 @@ yarn-error.log*
 next-env.d.ts
 
 # direnv
-.envrc
+*/.gitignore
+*/yarn.lock

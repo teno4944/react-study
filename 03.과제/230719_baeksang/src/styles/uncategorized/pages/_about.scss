@@ -1,0 +1,206 @@
+.about-page {
+	.about-title-wrap {
+		text-align: center;
+		strong {
+			display: block;
+			padding-top: 20px;
+			font-size: 22px;
+			line-height: 52px;
+		}
+		p {
+			padding-bottom: 56px;
+			font-size: 20px;
+			line-height: 30px;
+		}
+		img {
+			margin-bottom: -137px;
+		}
+	}
+
+	.sector-title-wrap {
+		padding-bottom: 130px !important;
+	}
+	.sub-title {
+		&:after {
+			display: none;
+		}
+	}
+	.schedule-wrap {
+		padding: 166px 0 0;
+		h3 {
+			padding: 0 0 53px;
+			font-size: 35px;
+			line-height: 46px;
+			text-align: center;
+		}
+	}
+	.schedule-con {
+		position: relative;
+		padding: 0 0 109px;
+		border-top: 2px solid $black;
+		&:after {
+			display: block;
+			content: "";
+			clear: both;
+		}
+		dl {
+			float: left;
+			padding: 0 0 0 90px;
+			width: 50%;
+			box-sizing: border-box;
+			border-bottom: 1px solid $light4;
+			&:nth-child(2) {
+				display: block;
+			}
+			&:nth-child(3) {
+				display: block;
+				width: 100%;
+			}
+		}
+		dt {
+			float: left;
+			line-height: 70px;
+			margin-right: 42px;
+			font-size: 22px;
+			font-weight: bold;
+		}
+		dd {
+			float: left;
+			line-height: 70px;
+			display: block;
+			width: auto;
+			font-size: 20px;
+			color: $dark2;
+			span {
+				float: left;
+				padding-right: 22px;
+				vertical-align: middle;
+				img {
+					margin-top: -6px;
+					height: 30px;
+					vertical-align: middle;
+				}
+			}
+			span.logo-vlive {
+				img {
+					height: 29px;
+				}
+			}
+		}
+	}
+	.guideline-wrap {
+		padding: 95px 0 110px;
+		color: $white;
+		text-align: center;
+		padding: 101px 0 129px;
+		background: url(#{$imgnow}/baeksang/2023/about-bg-line.png) #2058da repeat-x 0 100%/cover;
+		background-size: auto;
+		h3 {
+			font-size: 35px;
+			line-height: 43px;
+		}
+		.guideline-sector {
+			margin-top: 70px;
+			border: 1px solid rgba(255, 255, 255, 0.5);
+			&:nth-child(2) {
+				.guideline-title {
+					span {
+						background: linear-gradient(to bottom, #5c02c8, #6003cc);
+					}
+				}
+			}
+			&:nth-child(3) {
+				.guideline-title {
+					span {
+						background: linear-gradient(to bottom, #9f2e9b, #ad3a8e);
+					}
+				}
+			}
+			&:nth-child(4) {
+				.guideline-title {
+					span {
+						background: linear-gradient(to bottom, #b29e42, #92ac3f);
+					}
+				}
+			}
+			.guideline-title {
+				position: relative;
+				margin-top: -20px;
+				padding-bottom: 20px;
+				span {
+					position: relative;
+					display: inline-block;
+					padding: 0 34px;
+					font-size: 28px;
+					z-index: 1;
+				}
+			}
+			.guideline-con {
+				padding-bottom: 30px;
+				font-size: 18px;
+				line-height: 28px;
+				em {
+					display: block;
+					margin-top: 16px;
+				}
+			}
+		}
+	}
+	.sector-title-wrap {
+		padding-bottom: 110px;
+		&:after {
+			display: none;
+		}
+		h3 {
+			padding-bottom: 57px;
+			font-size: 35px;
+			text-align: center;
+		}
+		.prize-sector {
+			border-top: 2px solid $black;
+			dl {
+				position: relative;
+				&:after {
+					display: block;
+					content: "";
+					clear: both;
+				}
+			}
+			dt, dd {
+				float: left;
+				padding-top: 20px;
+				padding-bottom: 20px;
+				height: 30px;
+				line-height: 30px;
+				border-bottom: 1px solid #a0a0a0;
+				width: 122px;
+				font-size: 22px;
+				color: $white;
+				text-align: center;
+			}
+			dd {
+				padding-right: 24px;
+				padding-left: 24px;
+				width: 990px;
+				font-size: 18px;
+				color: $dark2;
+				text-align: left;
+			}
+			.tv {
+				dt {
+					background: $tv;
+				}
+			}
+			.movie {
+				dt {
+					background: $movie;
+				}
+			}
+			.drama {
+				dt {
+					background: $drama;
+				}
+			}
+		}
+	}
+}

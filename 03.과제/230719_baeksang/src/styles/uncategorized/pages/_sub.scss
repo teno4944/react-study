@@ -1,0 +1,129 @@
+.sub-page {
+	&.container-wrap {
+		.sub-title {
+			background: $light4;
+		}
+		.sector-title {
+			border-bottom: 1px solid $light4;
+		}
+	}
+	.footer-wrap,
+	.header-wrap {
+		.container-inner {
+			width: $pc-width;
+			min-height: 0;
+		}
+	}
+	
+	.container-inner {
+		width: 1160px;
+	}
+	.sub-title {
+		position: relative;
+		padding: 90px 0 45px;
+		h2 {
+			font-size: 48px;
+			font-weight: bold;
+			text-align: center;
+		}
+		.button {
+			margin: 59px -1px 0;
+			display: flex;
+			vertical-align: top;
+			a {
+				flex: 1;
+				line-height: 66px;
+				text-align: center;
+				box-sizing: content-box;
+				&:first-child {
+					margin-right: 0;
+				}
+				span {
+					font-size: 20px;
+					line-height: 22px;
+				}
+				&:hover {
+					span {
+						font-weight: 600;
+						text-decoration: none;
+					}
+				}
+				&.on {
+					position: relative;
+					color: $white;
+					font-weight: 600;
+					&:hover {
+						position: relative;
+						color: $white;
+						font-weight: 600;
+						span {
+							color: $white;
+							text-decoration: none;
+						}
+					}
+				}
+			}
+		}
+	}
+	.sector-title {
+		padding: 78px 0 27px;
+		font-size: 0;
+		line-height: 0;
+		border-bottom: 2px solid $base-font-color;
+		strong {
+			font-size: 24px;
+			line-height: 28px;
+		}
+		.nominee-award {
+			position: relative;
+			display: inline-block;
+			margin-right: 17px;
+			padding-right: 14px;
+			font-size: 24px;
+			line-height: 28px;
+			font-weight: bold;
+			vertical-align: middle;
+		}
+		.nominee-sector {
+			display: inline-block;
+			padding: 0 8px;
+			height: 24px;
+			font-size: 14px;
+			line-height: 24px;
+			color: $white;
+			vertical-align: middle;
+		}
+	}
+	.top-wrap {
+		position: fixed;
+		right: 60px;
+		bottom: 60px;
+		display: inline-block;
+		z-index: 1;
+	}
+	.awards-page {
+		.awards-list-wrap {
+			min-height: $min-height;
+		}
+		.sector-title {
+			border-color: $black;
+		}
+	}
+	.notice-page {
+		.sector-title {
+			border-bottom: none;
+		}
+	}
+	.null-page {
+		a.box-btn {
+			&:focus {
+				background: $movie;
+				border-color: $movie;
+			}
+			&:hover {
+				background: $movie;
+				border-color: $movie;
+			}
+		}
+	}
+}

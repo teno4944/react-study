@@ -1,0 +1,85 @@
+.banner-layerpopup {
+	display: none;
+}
+.banner-layerpopup.on {
+	position: absolute;
+	top: 156px;
+	left: 50%;
+	margin-left: -625px;
+	padding: 25px 25px 17px;
+	display: block;
+	width: 420px;
+	height: 482px;
+	box-sizing: border-box;
+	font-size: 16px;
+	color: $black;
+}
+.banner-layerpopup.megabox {
+	background: url(#{$imgnow}/baeksang/banner_layerpopup_megabox_bg.png) no-repeat;
+	z-index: 5;
+}
+.banner-layer-check {
+	position: relative;
+	zoom: 1;
+	&:after {
+		display: block;
+		content: "";
+		clear: both;
+	}
+}
+.banner-layerpopup.on.about {
+	margin-left: -625px;
+	padding: 8px 8px 40px;
+	display: block;
+	width: 456px;
+	height: 542px;
+	color: $white;
+	background: $black;
+}
+
+
+.popup-check {
+	display: inline-block;
+	float: left;
+	background: url(#{$imgnow}/baeksang/popup_check.png) 0 12px no-repeat;
+	label {
+		display: inline-block;
+		height: 40px;
+		cursor: pointer;
+	}
+	input {
+		width: 16px;
+		height: 16px;
+		visibility: hidden;
+	}
+	span {
+		padding-left: 8px;
+		height: 40px;
+		line-height: 40px;
+	}
+}
+.popup-check.on {
+	background: url(#{$imgnow}/baeksang/popup_check_on.png) 0 12px no-repeat;
+}
+.popup-close {
+	display: inline-block;
+	float: right;
+	button {
+		display: block;
+		height: 40px;
+		line-height: 40px;
+		span {
+			font-size: 16px;
+			color: $black;
+		}
+		img {
+			margin: 10px 7px 0 9px;
+		}
+	}
+}
+.reforeunload {
+	* {
+		transition: none;
+		visibility: hidden;
+	}
+}

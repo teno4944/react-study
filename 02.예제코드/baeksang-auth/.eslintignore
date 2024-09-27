@@ -1,0 +1,10 @@
+node_modules
+**/.next/**
+**/_next/**
+**/dist/**
+**/out/**
+**/__tmp__/**
+src/assets/*
+src/types/*
+lerna.json
+.github

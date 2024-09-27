@@ -1,0 +1,21 @@
+.visual-wrap {
+	position: relative;
+	height: 999px;
+	margin-bottom: -346px;
+	overflow: hidden;
+	@include bg('bg-visual', $position:50% 50%, $size:cover, $format:jpg);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src= "#{$imgnow}/baeksang/2022/bg-visual2.jpg", sizingMethod="scale");
+
+	.visual {
+		position: absolute;
+		left: 50%;
+		top: 75px;
+		margin: 0 -341px;
+		> div {
+			position: relative;
+			opacity: 0;
+			visibility: hidden;
+			top: 30px;
+		}
+	}
+}

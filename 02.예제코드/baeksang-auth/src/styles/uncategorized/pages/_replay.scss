@@ -1,0 +1,252 @@
+.vod-wrap {
+	height: 890px;
+	background: url(#{$imgnow}/baeksang/bg-vod.png) $black no-repeat 50% 50%/2540px auto;
+	text-align: center;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src= "#{$imgnow}/baeksang/bg-vod.png", sizingMethod="scale");
+	.wrap {
+		position: relative;
+		opacity: 0;
+		visibility: hidden;
+		top: 30px;
+		position: relative;
+		margin-top: 90px;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.more {
+		margin-top: 62px;
+		a {
+			position: relative;
+			opacity: 0;
+			visibility: hidden;
+			top: 30px;
+			color: $white;
+			&:focus {
+				span {
+					background-color: $white;
+					border-color: $white;
+					color: $black;
+				}
+			}
+			&:hover {
+				span {
+					background-color: $white;
+					border-color: $white;
+					color: $black;
+				}
+			}
+		}
+	}
+	.list {
+		position: relative;
+		width: 1008px;
+		height: 567px;
+		overflow: hidden;
+		ul {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 1000%;
+		}
+		li {
+			float: left;
+			width: 1008px;
+			height: 576px;
+			a {
+				position: relative;
+				display: block;
+				color: #dcdcdc;
+				overflow: hidden;
+				&:after {
+					content: "";
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					width: 125px;
+					height: 125px;
+					overflow: hidden;
+					margin: -62.5px 0 0 -62.5px;
+					background: url(#{$imgnow}/baeksang/btn-play.png) no-repeat 50% 50%;
+				}
+			}
+		}
+	}
+	.thumb {
+		display: block;
+		img {
+			width: 1008px;
+			height: 567px;
+		}
+	}
+	.title {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		height: 94px;
+		padding: 29px 0 0 38px;
+		background-color: $black;
+		background-color: rgba(0, 0, 0, 0.8);
+		text-align: left;
+		strong {
+			display: block;
+			font-size: 30px;
+			font-weight: 400;
+		}
+		span {
+			display: block;
+			margin-top: 4px;
+			font-size: 20px;
+		}
+	}
+	.button {
+		a {
+			position: absolute;
+			top: 50%;
+			width: 45px;
+			height: 62px;
+			overflow: hidden;
+			background: none no-repeat 50% 50%;
+			margin-top: -31px;
+			text-indent: -999em;
+		}
+		a.prev {
+			left: -61px;
+			background-image: url(#{$imgnow}/baeksang/btn-prev.png);
+		}
+		a.next {
+			right: -61px;
+			background-image: url(#{$imgnow}/baeksang/btn-next.png);
+		}
+	}
+}
+
+.vod-page {
+	padding-bottom: 130px;
+	.notice-title-wrap {
+		.button {
+			.box-btn {
+				margin-left: -1px;
+				width: 385px;
+				border: 1px solid $gray2;
+				&:hover {
+					border-color: $primary;
+				}
+				&.on {
+					background: $primary;
+					border-color: $primary;
+				}
+			}
+			a {
+				&:hover {
+					span {
+						color: $base-font-color;
+					}
+				}
+			}
+			.more-btn {
+				&:hover {
+					border: 1px solid $gray2;
+					span {
+						text-decoration: none;
+						color: $base-font-color;
+					}
+				}
+				span {
+					display: inline-block;
+					height: 22px;
+				}
+				.ico-more {
+					display: inline-block;
+					margin-left: 8px;
+					width: 7px;
+					height: 19px;
+					@include bg('ico_more', $path:'baeksang', $position:0 5.5px);
+				}
+			}
+		}
+	}
+
+	.replay-list {
+		position: relative;
+		margin-right: -23px;
+		padding-top: 30px;
+		&:after {
+			display: block;
+			content: "";
+			clear: both;
+		}
+		li {
+			float: left;
+			margin-right: 22px;
+			width: 273px;
+			height: 260px;
+			a {
+				display: block;
+				&:hover {
+					.list-thumb {
+						img {
+							transform: scale(1.05) rotate(0.02deg);
+						}
+						.list-thumb-over {
+							display: block;
+						}
+					}
+					.list-title {
+						color: $base-font-color;
+						text-decoration: underline;
+					}
+				}
+				.list-thumb-over {
+					display: none;
+					position: absolute;
+					left: 0;
+					top: 0;
+					height: 100%;
+					z-index: 1;
+				}
+			}
+			.list-thumb {
+				position: relative;
+				overflow: hidden;
+				display: block;
+				width: 273px;
+				height: 154px;
+				text-align: center;
+				background: #eaeaea;
+				img {
+					width: auto;
+					height: auto;
+					max-width: 273px;
+					height: 154px;
+					transition: transform 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+					transform: scale(1);
+				}
+				.play-time {
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					display: block;
+					min-width: 94px;
+					height: 30px;
+					font-size: 15px;
+					line-height: 30px;
+					color: $white;
+					text-align: center;
+					letter-spacing: 0.5px;
+					background: rgba(0, 0, 0, 0.7);
+				}
+			}
+			.list-title {
+				overflow: hidden;
+				display: block;
+				padding-top: 10px;
+				height: 78px;
+				font-size: 18px;
+				line-height: 26px;
+				color: $base-font-color;
+				font-weight: 400;
+			}
+		}
+	}
+}

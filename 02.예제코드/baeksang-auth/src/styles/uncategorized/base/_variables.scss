@@ -1,0 +1,103 @@
+// Base
+$font-path: "/fonts" !default;
+$base-font-family: "Noto Sans KR", "Malgun Gothic", "맑은 고딕", tahoma, sans-serif !default;
+$base-font-size: 16px !default;
+$heading-spacing: 10px 0 !default;
+$paragraph-spacing: 0 0 25px !default;
+$base-line-height: 1.3 !default;
+
+// Contens size
+$pc-width: 1340px;
+$mo-width: 750px;
+$min-height: 629px;
+
+// Heading title size
+$heading: (
+  h1: 48px,
+  h2: 40px,
+  h3: 34px,
+  h4: 28px,
+  h5: 22px,
+  h6: 18px
+) !default;
+
+//--- Colors ---//
+// Base colors
+$white: #ffffff !default;
+$black: #000000 !default;
+$base-font-color: #2a2a2a !default;
+
+// dark
+$dark: #001111;
+$dark2: #454545;
+
+// light
+$light: #f0f0f0;
+$light2: #f5f5f5;
+$light3: #E5E5E5;
+$light4: #EFE9F5;
+$light5: #dddddd;
+$light6: #C4E9E8;
+
+// gray
+$gray: #aaaaaa;
+$gray2: #999999;
+$gray3: #666666;
+
+// point colors
+$primary: #6700D7;
+
+$blue: #1c50d5;
+$blue2: #022bdc;
+$blue3: #1a57db;
+
+$orange: #ffa724;
+$orange2: #ff842c;
+
+// tv
+$tv: #FB3E27 !default;
+// movie
+$movie: #6700D7 !default;
+// drama
+$drama: #04A248 !default;
+// special
+$special: #03153F;
+// etc
+$etc: #03153F;
+
+// Text size class variables
+$text-settings: (
+  'xs': (
+    font-size: 12px,
+    line-height: $base-line-height
+  ),
+  'sm': (
+    font-size: 14px,
+    line-height: $base-line-height
+  ),
+  'base': (
+    font-size: 16px,
+    line-height: $base-line-height
+  ),
+  'md': (
+    font-size: 18px,
+    line-height: $base-line-height * 2
+  ),
+  'lg': (
+    font-size: 20px,
+    line-height: $base-line-height * 2
+  ),
+  'xl': (
+    font-size: 24px,
+    line-height: $base-line-height * 2
+  )
+);
+
+// Common spacer
+$space: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100) !default;
+
+// dev server static
+$static: '//staticdev.jtbc.co.kr';
+$nstatic: '//nstaticdev.jtbc.co.kr';
+$imgdev: 'https://imagesdev.jtbc.co.kr';
+$imgnow: '//images.jtbc.co.kr';

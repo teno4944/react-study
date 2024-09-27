@@ -1,0 +1,180 @@
+.sector-wrap {
+  height: 450px;
+  overflow: hidden;
+  @include bg('bg-line', repeat-x, auto 100%, 50% 0);
+  text-align: center;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src= "#{$imgnow}/baeksang/2022/bg-line.png", sizingMethod="scale");
+
+	h2 {
+		position: relative;
+		opacity: 0;
+		visibility: hidden;
+		top: 30px;
+		margin: 92px 0 69px;
+		color: $white;
+		font-size: 35px;
+		font-weight: 400;
+    letter-spacing: -1px;
+		strong {
+			font-weight: 400;
+		}
+	}
+	.button {
+		position: relative;
+		opacity: 0;
+		visibility: hidden;
+		top: 30px;
+		display: inline-block;
+		vertical-align: top;
+		&:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+		.box-btn {
+			position: relative;
+			float: left;
+			width: 316px;
+			background: none no-repeat 0 0;
+			border: 0 none;
+			box-sizing: content-box;
+			transition: none;
+      & + .box-btn {
+        margin-left: 15px;
+      }
+ 
+      &.tv {
+        &:focus {
+          span {
+            border-color: $tv;
+            &:after {
+              background-color: $tv;
+              opacity: 1;
+            }
+          }
+        }
+        &:hover {
+          span {
+            border-color: $tv;
+            &:after {
+              background-color: $tv;
+              opacity: 1;
+            }
+          }
+        }
+      }
+      &.movie {
+        &:focus {
+          span {
+            border-color: $movie;
+            &:after {
+              background-color: $movie;
+              opacity: 1;
+            }
+          }
+        }
+        &:hover {
+          span {
+            border-color: $movie;
+            &:after {
+              background-color: $movie;
+              opacity: 1;
+            }
+          }
+        }
+      }
+      &.drama {
+        &:focus {
+          span {
+            border-color: $drama;
+            &:after {
+              background-color: $drama;
+              opacity: 1;
+            }
+          }
+        }
+        &:hover {
+          span {
+            border-color: $drama;
+            &:after {
+              background-color: $drama;
+              opacity: 1;
+            }
+          }
+        }
+      }
+      &.etc {
+        &:focus {
+          span {
+            border-color: $etc;
+            &:after {
+              background-color: $etc;
+              opacity: 1;
+            }
+          }
+        }
+        &:hover {
+          span {
+            border-color: $etc;
+            &:after {
+              background-color: $etc;
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+			span {
+				z-index: 1;
+				position: relative;
+        font-size: 30px;
+        @include border(all, 2px, $white);
+        line-height: 99px;
+				color: $white;
+				&:after {
+					content: "";
+					z-index: -1;
+          @include position(absolute, 0, 0, 0, 0);
+					background: none no-repeat 0 0;
+					opacity: 0;
+					transition: opacity 0.3s;
+				}
+			}
+		}
+		
+		.nominate-end {
+			width: auto;
+      white-space: nowrap;
+			span {
+        padding: 0 20px;
+				.bar {
+					display: inline-block;
+					margin: 0 14px 0 15px;
+					width: 1px;
+					height: 21px;
+					background: $light5;
+				}
+				.bg {
+					display: inline-block;
+					margin-left: 10px;
+					width: 12px;
+					height: 20px;
+          @include bg('btn-arrow');
+				}
+			}
+      &:hover {
+        span {
+          .bar {
+            background: $white;
+          }
+        }
+      }
+		}
+	}
+  &.final {
+    position: relative;
+    .button {
+			margin-top: 160px;
+		}
+  }
+}

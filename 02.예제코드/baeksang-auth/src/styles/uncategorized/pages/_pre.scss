@@ -1,0 +1,29 @@
+.pre-open {
+	display: flex;
+	height: 100%;
+	background: #001111;
+	.main-page {
+		width: 100%;
+		.visual-wrap {
+			height: 1000px;
+			margin-bottom: -350px;
+			background-position: 50% 0;
+		}
+		.info-wrap {
+			p {
+				padding-top: 137px;
+			}
+		}
+	}
+	.footer-wrap {
+		display: flex;
+		min-height: 101px;
+		height: auto;
+		.publisher {
+			top: 46px;
+		}
+		.copyright {
+			margin-top: 0;
+		}
+	}
+}

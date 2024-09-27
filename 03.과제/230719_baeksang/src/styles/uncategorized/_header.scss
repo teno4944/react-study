@@ -1,0 +1,68 @@
+.header-wrap {
+	@include position(absolute, 0, 0, 0);
+	min-width: $pc-width;
+	height: 90px;
+	z-index: 10;
+	background-color: $white;
+	@include border(top, $color:$light3);
+	@include border(bottom, $color:$light3);
+	transform: translate3d(0, 0, 0);
+	transition: top 0.3s linear;
+	.container-inner {
+		position: relative;
+	}
+	.logo {
+		@include position(absolute, 22px);
+		a {
+			display: block;
+			width: 249px;
+			height: 45px;
+			overflow: hidden;
+			@include bg('header-logo', $size:auto);
+			text-indent: -999em;
+		}
+	}
+	.gnb {
+		position: absolute;
+		right: 30px;
+		top: 30px;
+		min-width: 80%;
+		text-align: right;
+		ul {
+			float: right;
+			font-size: 19px;
+			&:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+		}
+		li {
+			float: left;
+			padding: 0 17.5px;
+			text-align: center;
+			&:nth-child(2) {
+				a {
+					&:focus {
+						margin: 0 -1px;
+					}
+					&:hover {
+						margin: 0 -1px;
+					}
+				}
+			}
+		}
+		a {
+			font-size: 19px;
+			font-weight: 300;
+			&.on{
+				font-weight: 500;
+			}
+			white-space: nowrap;
+			transition: none;
+			&:hover {
+				font-weight: 500;
+			}
+		}
+	}
+}
